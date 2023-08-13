@@ -1,6 +1,14 @@
+using OpenTK.Graphics.OpenGL;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.Linq;
 using System.Windows.Forms;
+using System.IO;
+using System.Globalization;
+using System.Xml;
+using System.Text;
 
 namespace AgOpenGPS
 {
@@ -36,6 +44,8 @@ namespace AgOpenGPS
 
         private void btnStop_Click(object sender, EventArgs e)
         {
+
+           
             //if (mf.manualBtnState != AgOpenGPS.FormGPS.btnStates.Off)
             //{
             //    mf.btnManualOffOn.PerformClick();
@@ -170,7 +180,99 @@ namespace AgOpenGPS
 
         private void FormTreePlant_Load(object sender, EventArgs e)
         {
-           
+            // Tree points ----------------------------------------------------------------------------
+            //start to read the file
+            //string line;
+            //string fileAndDirectory = "";
+            //fileAndDirectory = mf.fieldsDirectory + mf.currentFieldDirectory + "\\Tree.txt";
+            //if (!File.Exists(fileAndDirectory))
+            //{
+            //    var form = new FormTimedMessage(4000, "Missing Tree File", "But Field is Loaded");
+            //    form.Show();
+            //    //return;
+            //}
+
+            ///*
+            //    May-14-17  -->  7:42:47 PM
+            //    Points in Patch followed by easting, heading, northing, altitude
+            //    $ContourDir
+            //    cdert_May14
+            //    $Offsets
+            //    533631,5927279,12
+            //    19
+            //    2.866,2.575,-4.07,0             
+            // */
+            //else
+            //{
+                
+            //    using (StreamReader reader = new StreamReader(fileAndDirectory))
+            //    {
+            //        try
+            //        {
+            //            //read the lines and skip them
+            //            line = reader.ReadLine();
+
+            //            line = reader.ReadLine();
+            //            line = reader.ReadLine();
+            //            line = reader.ReadLine();
+            //            line = reader.ReadLine();
+            //            line = reader.ReadLine();
+            //            line = reader.ReadLine();
+
+
+            //            while (!reader.EndOfStream)
+            //            {
+            //                //read how many vertices in the file
+
+            //                int verts = int.Parse(line);
+
+
+
+            //                for (int v = 0; v < verts; v++)
+            //                {
+            //                    line = reader.ReadLine();
+
+            //                    string[] words = line.Split(',');
+
+            //                    double east = double.Parse(words[0], CultureInfo.InvariantCulture);
+            //                    double nort = double.Parse(words[2], CultureInfo.InvariantCulture);
+
+            //                   mf.Tree.AddPoint(east, nort);
+            //                    mf.Tree.ptList[mf.Tree.ptList.Count - 1].index = mf.Tree.ptList.Count - 1;
+            //                    mf.Tree.ptList[mf.Tree.ptList.Count - 1].comment = words[5];
+            //                    if (words.Length > 6)
+            //                    {
+            //                        mf.Tree.ptList[mf.Tree.ptList.Count - 1].datePlanted = words[6];
+            //                        if (words[6] != "")
+            //                        {
+            //                            mf.Tree.ptList[mf.Tree.ptList.Count - 1].isPlanted = true;
+            //                        }
+            //                    }
+            //                    mf.Tree.ptList[mf.Tree.ptList.Count - 1].heading = double.Parse(words[1], CultureInfo.InvariantCulture);
+            //                    //vec3 treept = new vec3(Tree.ptList[Tree.ptList.Count - 1].easting, Tree.ptList[Tree.ptList.Count - 1].northing, Tree.ptList[Tree.ptList.Count - 1].heading);
+            //                    //AddBoundaryAroundTree(treept, 4);
+
+
+            //                }
+            //            }
+            //            //CalculateMinMax();
+            //            //turn.BuildTurnLines();
+            //            //gf.BuildGeoFenceLines();
+            //            //mazeGrid.BuildMazeGridArray();
+
+            //        }
+            //        catch (Exception)
+            //        {
+            //            mf.WriteErrorLog("Loading Tree file" + e.ToString());
+
+            //            var form = new FormTimedMessage(4000, "Tree File is Corrupt", "But Field is Loaded");
+            //            form.Show();
+
+            //        }
+             
+
+
+            
 
             nudTreeSpacing.Value = (decimal)mf.vehicle.treeSpacing;
             lastDist = 0;

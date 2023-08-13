@@ -5,20 +5,27 @@ namespace AgOpenGPS
 {
     public partial class FormSaveOrNot : Form
     {
+        private readonly FormGPS mf = null;
         //class variables
-
-        public FormSaveOrNot(bool closing)
+        public FormSaveOrNot(Form callingForm)
         {
-            InitializeComponent();
+            mf = callingForm as FormGPS;
+            
+        }
+            public FormSaveOrNot(bool closing)
+        {
+          InitializeComponent();
 
             if (closing)
             {
                 btnOk.Image = Properties.Resources.ExitAOG;
+               
             }
             else
             {
                 btnOk.Image = Properties.Resources.FieldClose;
-                label3.Text = "Close";
+                label3.Text = "Sluiten";
+                
             }
         }
 
@@ -39,6 +46,11 @@ namespace AgOpenGPS
         {
             DialogResult = DialogResult.Yes;
             Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

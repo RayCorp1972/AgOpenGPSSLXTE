@@ -1075,6 +1075,9 @@ namespace AgOpenGPS
             tram.tramBndInnerArr?.Clear();
             tram.tramBndOuterArr?.Clear();
 
+            // Clean tree
+            Tree.ptList.Clear();
+
             //clear out contour and Lists
             btnContour.Enabled = false;
             //btnContourPriority.Enabled = false;

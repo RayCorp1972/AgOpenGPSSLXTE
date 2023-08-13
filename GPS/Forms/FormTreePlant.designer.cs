@@ -278,7 +278,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(362, 322);
             this.ControlBox = false;
             this.Controls.Add(this.button2);
@@ -298,7 +298,7 @@
             this.Controls.Add(this.btnZeroDistance);
             this.Controls.Add(this.btnStop);
             this.ForeColor = System.Drawing.Color.Lime;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormTreePlant";

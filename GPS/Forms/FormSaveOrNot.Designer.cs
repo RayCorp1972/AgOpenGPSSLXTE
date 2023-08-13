@@ -70,12 +70,13 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(608, 144);
             this.panel1.TabIndex = 260;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(55, 29);
+            this.label5.Location = new System.Drawing.Point(42, 29);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 262;
