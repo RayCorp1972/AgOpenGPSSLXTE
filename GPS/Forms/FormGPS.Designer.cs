@@ -2232,9 +2232,9 @@
             this.lblCurveLineName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurveLineName.Location = new System.Drawing.Point(390, 0);
             this.lblCurveLineName.Name = "lblCurveLineName";
-            this.lblCurveLineName.Size = new System.Drawing.Size(43, 19);
+            this.lblCurveLineName.Size = new System.Drawing.Size(39, 19);
             this.lblCurveLineName.TabIndex = 486;
-            this.lblCurveLineName.Text = "Line";
+            this.lblCurveLineName.Text = "Lijn";
             // 
             // lblCurrentField
             // 
@@ -2432,9 +2432,9 @@
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(289, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 19);
+            this.label2.Size = new System.Drawing.Size(70, 19);
             this.label2.TabIndex = 508;
-            this.label2.Text = "Fieldname";
+            this.label2.Text = "Perceel";
             // 
             // label3
             // 
