@@ -55,7 +55,7 @@ namespace AgIO
         private void FormNtrip_Load(object sender, EventArgs e)
         {
             cboxIsNTRIPOn.Checked = Properties.Settings.Default.setNTRIP_isOn;
-
+       
             if (!cboxIsNTRIPOn.Checked) tabControl1.Enabled = false;    
             string hostName = Dns.GetHostName(); // Retrieve the Name of HOST
             tboxHostName.Text = hostName;
@@ -84,15 +84,15 @@ namespace AgIO
             tboxCurrentLat.Text = Properties.Settings.Default.setNTRIP_manualLat.ToString();
             tboxCurrentLon.Text = Properties.Settings.Default.setNTRIP_manualLon.ToString();
 
-            checkBoxusetcp.Checked = Properties.Settings.Default.setNTRIP_isTCP;
+            //checkBoxusetcp.Checked = Properties.Settings.Default.setNTRIP_isTCP;
 
             if (Properties.Settings.Default.setNTRIP_isGGAManual) cboxGGAManual.Text = "Use Manual Fix";
             else cboxGGAManual.Text = "Use GPS Fix";
 
-            if (Properties.Settings.Default.setNTRIP_isHTTP10) cboxHTTP.Text = "1.0";
-            else cboxHTTP.Text = "1.1";
+            //if (Properties.Settings.Default.setNTRIP_isHTTP10) cboxHTTP.Text = "1.0";
+            //else cboxHTTP.Text = "1.1";
 
-            comboboxPacketSize.Text = mf.packetSizeNTRIP.ToString();
+            //comboboxPacketSize.Text = mf.packetSizeNTRIP.ToString();
         }
 
         private void cboxIsNTRIPOn_Click(object sender, EventArgs e)
@@ -228,8 +228,8 @@ namespace AgIO
 
             Properties.Settings.Default.setNTRIP_casterURL = tboxEnterURL.Text;
             Properties.Settings.Default.setNTRIP_isGGAManual = cboxGGAManual.Text == "Use Manual Fix";
-            Properties.Settings.Default.setNTRIP_isHTTP10 = cboxHTTP.Text == "1.0";
-            Properties.Settings.Default.setNTRIP_isTCP = checkBoxusetcp.Checked;
+            //Properties.Settings.Default.setNTRIP_isHTTP10 = cboxHTTP.Text == "1.0";
+            //Properties.Settings.Default.setNTRIP_isTCP = checkBoxusetcp.Checked;
 
             Properties.Settings.Default.setNTRIP_sendToSerial = cboxToSerial.Checked;
             Properties.Settings.Default.setNTRIP_sendToUDP = cboxToUDP.Checked;
@@ -237,8 +237,8 @@ namespace AgIO
             mf.isSendToSerial = cboxToSerial.Checked;
             mf.isSendToUDP = cboxToUDP.Checked;
 
-            mf.packetSizeNTRIP = Convert.ToInt32(comboboxPacketSize.Text);
-            Properties.Settings.Default.setNTRIP_packetSize = Convert.ToInt32(comboboxPacketSize.Text);
+           // mf.packetSizeNTRIP = Convert.ToInt32(comboboxPacketSize.Text);
+            //Properties.Settings.Default.setNTRIP_packetSize = Convert.ToInt32(comboboxPacketSize.Text);
 
 
             if (Properties.Settings.Default.setNTRIP_isOn && Properties.Settings.Default.setRadio_isOn)

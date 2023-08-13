@@ -97,7 +97,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 57);
             this.label5.TabIndex = 339;
-            this.label5.Text = "Tool Width (cm)";
+            this.label5.Text = "Werkbreedte  (cm)";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FormTouchPick

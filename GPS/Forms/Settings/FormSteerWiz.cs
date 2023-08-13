@@ -1245,6 +1245,16 @@ namespace AgOpenGPS
             Properties.Settings.Default.setIMU_rollZero = mf.ahrs.rollZero;
         }
 
+        private void label51_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label116_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void nudAntennaHeight_Click(object sender, EventArgs e)
         {
             if (mf.KeypadToNUD((NumericUpDown)sender, this))

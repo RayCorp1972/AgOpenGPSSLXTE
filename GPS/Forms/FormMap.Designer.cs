@@ -292,16 +292,16 @@
             this.gboxField.Size = new System.Drawing.Size(83, 264);
             this.gboxField.TabIndex = 487;
             this.gboxField.TabStop = false;
-            this.gboxField.Text = "Field";
+            this.gboxField.Text = "Perceel";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 243);
+            this.label1.Location = new System.Drawing.Point(14, 243);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 487;
-            this.label1.Text = "Apply";
+            this.label1.Text = "Toepassen";
             // 
             // gboxBoundary
             // 
@@ -317,7 +317,7 @@
             this.gboxBoundary.Size = new System.Drawing.Size(83, 363);
             this.gboxBoundary.TabIndex = 488;
             this.gboxBoundary.TabStop = false;
-            this.gboxBoundary.Text = "Boundary";
+            this.gboxBoundary.Text = "Perceelgrens";
             // 
             // lblBnds
             // 

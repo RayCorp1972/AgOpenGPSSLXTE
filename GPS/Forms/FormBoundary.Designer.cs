@@ -50,6 +50,8 @@
             this.btnCancelKML = new System.Windows.Forms.Button();
             this.btnLoadBoundaryFromGE = new System.Windows.Forms.Button();
             this.btnLoadMultiBoundaryFromGE = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelMain.SuspendLayout();
             this.panelChoose.SuspendLayout();
             this.panelKML.SuspendLayout();
@@ -226,6 +228,8 @@
             // panelChoose
             // 
             this.panelChoose.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelChoose.Controls.Add(this.label2);
+            this.panelChoose.Controls.Add(this.label1);
             this.panelChoose.Controls.Add(this.btnCancelChoose);
             this.panelChoose.Controls.Add(this.label4);
             this.panelChoose.Controls.Add(this.btnGetKML);
@@ -387,6 +391,30 @@
             this.btnLoadMultiBoundaryFromGE.Click += new System.EventHandler(this.btnLoadBoundaryFromGE_Click);
             this.btnLoadMultiBoundaryFromGE.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.btnLoadMultiBoundaryFromGE_HelpRequested);
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(12, 244);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(150, 24);
+            this.label1.TabIndex = 426;
+            this.label1.Text = "Zelf rijden";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(12, 86);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 24);
+            this.label2.TabIndex = 427;
+            this.label2.Text = "Importeer";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // FormBoundary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
@@ -404,9 +432,10 @@
             this.MinimizeBox = false;
             this.Name = "FormBoundary";
             this.Padding = new System.Windows.Forms.Padding(2);
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Boundary";
+            this.Text = "Perceel grens";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormBoundary_FormClosing);
             this.Load += new System.EventHandler(this.FormBoundary_Load);
             this.panelMain.ResumeLayout(false);
@@ -441,5 +470,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnBingMaps;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

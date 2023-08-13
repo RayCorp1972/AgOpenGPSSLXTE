@@ -28,9 +28,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -73,6 +74,18 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup />
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>CBBF6B3E5694C048258E13AA3BCAEB60C620B206</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>AgOpenGPS_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ColorPicker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -170,6 +183,18 @@
     </Compile>
     <Compile Include="CustomControl1.Designer.cs">
       <DependentUpon>CustomControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAdmin.Designer.cs">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormAkkoord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAkkoord.designer.cs">
+      <DependentUpon>FormAkkoord.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormFieldKML.cs">
       <SubType>Form</SubType>
@@ -472,10 +497,25 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="gStr.fi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gStr.fi.resx</DependentUpon>
+    </Compile>
     <Compile Include="gStr.hu.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>gStr.hu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="gStr.lt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gStr.lt.resx</DependentUpon>
+    </Compile>
+    <Compile Include="gStr.lv.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gStr.lv.resx</DependentUpon>
     </Compile>
     <Compile Include="gStr.tr.Designer.cs">
       <DependentUpon>gStr.tr.resx</DependentUpon>
@@ -583,6 +623,12 @@
       <DependentUpon>FormGPS.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\vec3.cs" />
+    <EmbeddedResource Include="Forms\FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAkkoord.resx">
+      <DependentUpon>FormAkkoord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormFieldKML.resx">
       <DependentUpon>FormFieldKML.cs</DependentUpon>
     </EmbeddedResource>
@@ -735,14 +781,23 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>gStr.da.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="gStr.fi.resx" />
+    <EmbeddedResource Include="gStr.fi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>gStr.fi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="gStr.hu.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>gStr.hu.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="gStr.lt.resx" />
-    <EmbeddedResource Include="gStr.lv.resx" />
+    <EmbeddedResource Include="gStr.lt.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>gStr.lt.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gStr.lv.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>gStr.lv.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="gStr.tr.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>gStr.tr.Designer.cs</LastGenOutput>
@@ -802,6 +857,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="AgOpenGPS_TemporaryKey.pfx" />
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
@@ -888,6 +944,10 @@
     <Content Include="Nav.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\logo.png" />
+    <None Include="Resources\logo1.png" />
+    <None Include="Resources\logo2.png" />
+    <None Include="Resources\BoundaryLoadFromGE.png" />
     <Content Include="Resources\rtk_lost.wav" />
     <None Include="btnImages\BrightnessDn.png" />
     <None Include="btnImages\BrightnessUp.png" />

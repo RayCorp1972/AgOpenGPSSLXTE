@@ -365,6 +365,8 @@ namespace AgOpenGPS
         #region Left Panel Menu
         private void steerWizardMenuItem_Click(object sender, EventArgs e)
         {
+            
+            
             Form fcs = Application.OpenForms["FormSteer"];
 
             if (fcs != null)
@@ -382,8 +384,11 @@ namespace AgOpenGPS
                 //fc.Close();
                 return;
             }
+            //Form form = new FormAdmin(this);
+            //form.Show(this);
 
-            //
+
+            
             Form form = new FormSteerWiz(this);
             form.Show(this);
 
@@ -922,7 +927,8 @@ namespace AgOpenGPS
         }
         private void menuLanguageTurkish_Click(object sender, EventArgs e)
         {
-            SetLanguage("tr", true);
+
+            textBox1.Visible = true;
         }          
         private void finnishToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -57,12 +57,12 @@
             // btnDay
             // 
             this.btnDay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDay.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDay.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay.Location = new System.Drawing.Point(454, 12);
             this.btnDay.Name = "btnDay";
             this.btnDay.Size = new System.Drawing.Size(120, 162);
             this.btnDay.TabIndex = 217;
-            this.btnDay.Text = "Day";
+            this.btnDay.Text = "Dag";
             this.btnDay.UseVisualStyleBackColor = true;
             // 
             // btnNight
@@ -70,13 +70,13 @@
             this.btnNight.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnNight.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnNight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNight.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNight.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNight.ForeColor = System.Drawing.SystemColors.Window;
             this.btnNight.Location = new System.Drawing.Point(454, 204);
             this.btnNight.Name = "btnNight";
             this.btnNight.Size = new System.Drawing.Size(120, 162);
             this.btnNight.TabIndex = 218;
-            this.btnNight.Text = "Night";
+            this.btnNight.Text = "Nacht";
             this.btnNight.UseVisualStyleBackColor = false;
             // 
             // btn01
@@ -297,7 +297,7 @@
             this.groupBox1.Size = new System.Drawing.Size(468, 216);
             this.groupBox1.TabIndex = 258;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Select Preset Color";
+            this.groupBox1.Text = "Selecteer kleur";
             // 
             // chkUse
             // 

@@ -189,7 +189,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(172, 32);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Tool Width";
+            this.label5.Text = "Werkbreedte";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
@@ -245,7 +245,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(169, 27);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Boundary Curve";
+            this.label4.Text = "Perceel grens bocht";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
@@ -257,7 +257,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 20);
             this.label3.TabIndex = 348;
-            this.label3.Text = "Curve";
+            this.label3.Text = "Bocht";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label7
@@ -269,7 +269,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 20);
             this.label7.TabIndex = 349;
-            this.label7.Text = "Line";
+            this.label7.Text = "Lijn";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label8
@@ -550,7 +550,7 @@
             this.Name = "FormABDraw";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Click 2 points on the Boundary to Begin";
+            this.Text = "Klik 2 punten voor perceelgrens";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormABDraw_FormClosing);
             this.Load += new System.EventHandler(this.FormABDraw_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudDistance)).EndInit();

@@ -50,9 +50,9 @@ namespace AgOpenGPS.Forms
             this.lblFilename.Location = new System.Drawing.Point(31, 86);
             this.lblFilename.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFilename.Name = "lblFilename";
-            this.lblFilename.Size = new System.Drawing.Size(83, 19);
+            this.lblFilename.Size = new System.Drawing.Size(128, 19);
             this.lblFilename.TabIndex = 153;
-            this.lblFilename.Text = "Filename";
+            this.lblFilename.Text = "Bestandsnaam";
             // 
             // label1
             // 
@@ -63,9 +63,9 @@ namespace AgOpenGPS.Forms
             this.label1.Location = new System.Drawing.Point(31, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 23);
+            this.label1.Size = new System.Drawing.Size(122, 23);
             this.label1.TabIndex = 152;
-            this.label1.Text = "Enter Record Name";
+            this.label1.Text = "Voer naam in";
             // 
             // tboxFieldName
             // 

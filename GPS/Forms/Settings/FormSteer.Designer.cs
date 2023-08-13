@@ -287,7 +287,7 @@
             this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label14.Location = new System.Drawing.Point(289, 82);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(45, 16);
+            this.label14.Size = new System.Drawing.Size(46, 16);
             this.label14.TabIndex = 322;
             this.label14.Text = "Or +5";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -301,9 +301,9 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label8.Location = new System.Drawing.Point(92, 146);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(114, 23);
+            this.label8.Size = new System.Drawing.Size(103, 23);
             this.label8.TabIndex = 328;
-            this.label8.Text = "Steer Angle:";
+            this.label8.Text = "Stuurhoek:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
@@ -426,7 +426,7 @@
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(204, 30);
             this.label23.TabIndex = 341;
-            this.label23.Text = "Max Steer Angle";
+            this.label23.Text = "Max Stuurhoek";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMaxSteerAngle
@@ -459,9 +459,9 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(94, 140);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(141, 19);
+            this.label7.Size = new System.Drawing.Size(106, 19);
             this.label7.TabIndex = 334;
-            this.label7.Text = "Counts per Degree";
+            this.label7.Text = "Tel per Graad";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // hsbarAckerman
@@ -566,11 +566,11 @@
             // 
             this.label10.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(122, 61);
+            this.label10.Location = new System.Drawing.Point(101, 65);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(97, 25);
+            this.label10.Size = new System.Drawing.Size(146, 25);
             this.label10.TabIndex = 295;
-            this.label10.Text = "WAS Zero";
+            this.label10.Text = "WAS Middenstand";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCountsPerDegree
@@ -635,11 +635,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(43, 7);
+            this.label6.Location = new System.Drawing.Point(1, 13);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(262, 25);
+            this.label6.Size = new System.Drawing.Size(354, 25);
             this.label6.TabIndex = 339;
-            this.label6.Text = "Motor or Hydraulic Gain";
+            this.label6.Text = "Motor or Hydrauliek Doorstroom";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label15
@@ -647,11 +647,11 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(108, 246);
+            this.label15.Location = new System.Drawing.Point(87, 240);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(136, 19);
+            this.label15.Size = new System.Drawing.Size(170, 19);
             this.label15.TabIndex = 338;
-            this.label15.Text = "Minimum to Move";
+            this.label15.Text = "Minimum om te sturen";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -661,9 +661,9 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(112, 156);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 19);
+            this.label4.Size = new System.Drawing.Size(126, 19);
             this.label4.TabIndex = 336;
-            this.label4.Text = "Maximum Limit";
+            this.label4.Text = "Maximum Limiet";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -671,11 +671,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(107, 66);
+            this.label2.Location = new System.Drawing.Point(112, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 19);
+            this.label2.Size = new System.Drawing.Size(104, 19);
             this.label2.TabIndex = 335;
-            this.label2.Text = "Proportional Gain";
+            this.label2.Text = "Proportioneel";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // hsbarMinPWM
@@ -797,7 +797,7 @@
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(204, 30);
             this.label27.TabIndex = 350;
-            this.label27.Text = "Integral";
+            this.label27.Text = "Intergraal";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label27.UseCompatibleTextRendering = true;
             // 
@@ -842,7 +842,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(204, 30);
             this.label5.TabIndex = 296;
-            this.label5.Text = "Heading";
+            this.label5.Text = "Richting";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
@@ -853,7 +853,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(204, 28);
             this.label3.TabIndex = 298;
-            this.label3.Text = "Distance";
+            this.label3.Text = "Afstand";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // hsbarStanleyGain
@@ -917,7 +917,7 @@
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(204, 19);
             this.label32.TabIndex = 356;
-            this.label32.Text = "Hold Look Ahead";
+            this.label32.Text = "Lijn Vasthouden";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblHoldLookAhead
@@ -985,7 +985,7 @@
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(204, 19);
             this.label24.TabIndex = 342;
-            this.label24.Text = "Integral";
+            this.label24.Text = "Intergraal";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label24.UseCompatibleTextRendering = true;
             // 
@@ -997,7 +997,7 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(204, 19);
             this.label21.TabIndex = 303;
-            this.label21.Text = "Acquire Look Ahead";
+            this.label21.Text = "Lijn verkrijgen";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label20
@@ -1019,7 +1019,7 @@
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(204, 19);
             this.label19.TabIndex = 301;
-            this.label19.Text = "Look Ahead Speed Gain";
+            this.label19.Text = "Lijnverkrijg snelheid";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label18
@@ -1121,7 +1121,7 @@
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(210, 19);
             this.label22.TabIndex = 351;
-            this.label22.Text = "Sidehill Deg per Deg of Roll";
+            this.label22.Text = "Roll Aanpassen zijwaarts";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label22.UseCompatibleTextRendering = true;
             // 
@@ -1139,11 +1139,11 @@
             // 
             this.labelPressureTurnSensor.AutoSize = true;
             this.labelPressureTurnSensor.ForeColor = System.Drawing.Color.Black;
-            this.labelPressureTurnSensor.Location = new System.Drawing.Point(416, 253);
+            this.labelPressureTurnSensor.Location = new System.Drawing.Point(413, 254);
             this.labelPressureTurnSensor.Name = "labelPressureTurnSensor";
-            this.labelPressureTurnSensor.Size = new System.Drawing.Size(110, 13);
+            this.labelPressureTurnSensor.Size = new System.Drawing.Size(118, 13);
             this.labelPressureTurnSensor.TabIndex = 512;
-            this.labelPressureTurnSensor.Text = "Pressure Turn Sensor";
+            this.labelPressureTurnSensor.Text = "Druk Overname Sensor";
             // 
             // labelCurrentTurnSensor
             // 
@@ -1151,39 +1151,39 @@
             this.labelCurrentTurnSensor.ForeColor = System.Drawing.Color.Black;
             this.labelCurrentTurnSensor.Location = new System.Drawing.Point(417, 379);
             this.labelCurrentTurnSensor.Name = "labelCurrentTurnSensor";
-            this.labelCurrentTurnSensor.Size = new System.Drawing.Size(105, 13);
+            this.labelCurrentTurnSensor.Size = new System.Drawing.Size(117, 13);
             this.labelCurrentTurnSensor.TabIndex = 511;
-            this.labelCurrentTurnSensor.Text = "Current Turn Sensor";
+            this.labelCurrentTurnSensor.Text = "Amp Overname Sensor";
             // 
             // labelEncoder
             // 
             this.labelEncoder.AutoSize = true;
             this.labelEncoder.ForeColor = System.Drawing.Color.Black;
-            this.labelEncoder.Location = new System.Drawing.Point(416, 129);
+            this.labelEncoder.Location = new System.Drawing.Point(411, 129);
             this.labelEncoder.Name = "labelEncoder";
-            this.labelEncoder.Size = new System.Drawing.Size(65, 13);
+            this.labelEncoder.Size = new System.Drawing.Size(133, 13);
             this.labelEncoder.TabIndex = 506;
-            this.labelEncoder.Text = "Turn Sensor";
+            this.labelEncoder.Text = "Remote Overname Sensor";
             // 
             // label70
             // 
             this.label70.AutoSize = true;
             this.label70.ForeColor = System.Drawing.Color.Black;
-            this.label70.Location = new System.Drawing.Point(591, 131);
+            this.label70.Location = new System.Drawing.Point(604, 131);
             this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(84, 13);
+            this.label70.Size = new System.Drawing.Size(78, 13);
             this.label70.TabIndex = 505;
-            this.label70.Text = "Invert Motor Dir";
+            this.label70.Text = "Omdraaien L/R";
             // 
             // label29
             // 
             this.label29.AutoSize = true;
             this.label29.ForeColor = System.Drawing.Color.Black;
-            this.label29.Location = new System.Drawing.Point(591, 257);
+            this.label29.Location = new System.Drawing.Point(597, 257);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(72, 13);
+            this.label29.Size = new System.Drawing.Size(87, 13);
             this.label29.TabIndex = 504;
-            this.label29.Text = "Invert Relays";
+            this.label29.Text = "Omdraaien relais";
             // 
             // label68
             // 
@@ -1195,7 +1195,7 @@
             this.label68.Name = "label68";
             this.label68.Size = new System.Drawing.Size(172, 30);
             this.label68.TabIndex = 502;
-            this.label68.Text = "Send + Save";
+            this.label68.Text = "Opslaan";
             this.label68.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cboxMotorDrive
@@ -1245,7 +1245,7 @@
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(181, 29);
             this.label62.TabIndex = 499;
-            this.label62.Text = "Steer Enable";
+            this.label62.Text = "Inschakel Type";
             this.label62.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // cboxConv
@@ -1276,7 +1276,7 @@
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(181, 29);
             this.label63.TabIndex = 496;
-            this.label63.Text = "Motor Driver";
+            this.label63.Text = "Motor Aansturing";
             this.label63.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // label64
@@ -1289,7 +1289,7 @@
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(181, 29);
             this.label64.TabIndex = 497;
-            this.label64.Text = "A2D Convertor";
+            this.label64.Text = "A2D Omvormer";
             this.label64.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // label61
@@ -1302,7 +1302,7 @@
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(112, 32);
             this.label61.TabIndex = 494;
-            this.label61.Text = "Turn Sensor";
+            this.label61.Text = "Remote Sensor";
             this.label61.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // nudMaxCounts
@@ -1338,7 +1338,7 @@
             this.label55.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label55.Location = new System.Drawing.Point(417, 4);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(52, 16);
+            this.label55.Size = new System.Drawing.Size(53, 16);
             this.label55.TabIndex = 489;
             this.label55.Text = "Danfoss";
             this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1347,11 +1347,11 @@
             // 
             this.label30.AutoSize = true;
             this.label30.ForeColor = System.Drawing.Color.Black;
-            this.label30.Location = new System.Drawing.Point(591, 4);
+            this.label30.Location = new System.Drawing.Point(597, 5);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(63, 13);
+            this.label30.Size = new System.Drawing.Size(85, 13);
             this.label30.TabIndex = 515;
-            this.label30.Text = "Invert WAS";
+            this.label30.Text = "Omdraaien WAS";
             // 
             // panel2
             // 
@@ -1503,7 +1503,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(112, 22);
             this.label16.TabIndex = 520;
-            this.label16.Text = "Panic Stop Speed";
+            this.label16.Text = "Paniek Stop Snelheid";
             this.label16.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // nudPanicStopSpeed
@@ -1538,7 +1538,7 @@
             this.label31.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label31.Location = new System.Drawing.Point(615, 466);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(48, 16);
+            this.label31.Size = new System.Drawing.Size(49, 16);
             this.label31.TabIndex = 521;
             this.label31.Text = "0 = Off";
             this.label31.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1553,7 +1553,7 @@
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(89, 42);
             this.label37.TabIndex = 523;
-            this.label37.Text = "Reset To Defaults";
+            this.label37.Text = "Terug naar standaard instellingen";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button2

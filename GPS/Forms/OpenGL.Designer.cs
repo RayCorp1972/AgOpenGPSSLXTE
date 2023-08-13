@@ -8,9 +8,14 @@ namespace AgOpenGPS
 {
     public partial class FormGPS
     {
+
+        //Test voor github
         //extracted Near, Far, Right, Left clipping planes of frustum
         public double[] frustum = new double[24];
 
+        private double PixGrote = 32;
+        private double Point1 = 20;
+        private double Point2 = 50;
         private bool isInit = false;
         private double fovy = 0.7;
         private double camDistanceFactor = -4;
@@ -1694,12 +1699,12 @@ namespace AgOpenGPS
         private void DrawLightBar(double Width, double Height, double offlineDistance)
         {
             double down = 13;
-            GL.LineWidth(1);
+            GL.LineWidth(0);
             //GL.Translate(0, 0, 0.01);
             //offlineDistance *= -1;
             //  Dot distance is representation of how far from AB Line
             int dotDistance = (int)(offlineDistance);
-            int limit = (int)lightbarCmPerPixel * 8;
+            int limit = (int)lightbarCmPerPixel * 8; //8
             if (dotDistance < -limit) dotDistance = -limit;
             if (dotDistance > limit) dotDistance = limit;
 
@@ -1707,24 +1712,24 @@ namespace AgOpenGPS
             //if (dotDistance > 10) dotDistance += 30;
 
             // dot background
-            GL.PointSize(8.0f);
+            GL.PointSize(8.0f); //orgineel 8.0f
             GL.Color3(0.00f, 0.0f, 0.0f);
             GL.Begin(PrimitiveType.Points);
-            for (int i = -8; i < -1; i++) GL.Vertex2((i * 32), down);
-            for (int i = 2; i < 9; i++) GL.Vertex2((i * 32), down);
+            for (int i = -8; i < -1; i++) GL.Vertex2((i * PixGrote), down); //pixgrote Orgineel = 32
+            for (int i = 2; i < 9; i++) GL.Vertex2((i * PixGrote), down);
             GL.End();
 
-            GL.PointSize(4.0f);
+            GL.PointSize(4.0f); //4.0f
             GL.Translate(0, 0, 0.01);
 
             //red left side
             GL.Color3(0.750f, 0.0f, 0.0f);
             GL.Begin(PrimitiveType.Points);
-            for (int i = -8; i < -1; i++) GL.Vertex2((i * 32), down);
+            for (int i = -8; i < -1; i++) GL.Vertex2((i * PixGrote), down);
 
             //green right side
             GL.Color3(0.0f, 0.750f, 0.0f);
-            for (int i = 2; i < 9; i++) GL.Vertex2((i * 32), down);
+            for (int i = 2; i < 9; i++) GL.Vertex2((i * PixGrote), down);
             GL.End();
 
             //Are you on the right side of line? So its green.
@@ -1732,16 +1737,16 @@ namespace AgOpenGPS
             {
                 int dots = (dotDistance * -1 / lightbarCmPerPixel) + 1;
 
-                GL.PointSize(24.0f);
+                GL.PointSize(24.0f); //24.0f
                 GL.Color3(0.0f, 0.0f, 0.0f);
                 GL.Begin(PrimitiveType.Points);
-                for (int i = 2; i < dots + 1; i++) GL.Vertex2((i * 32), down);
+                for (int i = 2; i < dots + 1; i++) GL.Vertex2((i * PixGrote), down);
                 GL.End();
 
-                GL.PointSize(16.0f);
+                GL.PointSize(16.0f); //16.0f
                 GL.Color3(0.0f, 0.980f, 0.0f);
                 GL.Begin(PrimitiveType.Points);
-                for (int i = 1; i < dots; i++) GL.Vertex2((i * 32 + 32), down);
+                for (int i = 1; i < dots; i++) GL.Vertex2((i * PixGrote + PixGrote), down);
                 GL.End();
                 //return;
             }
@@ -1750,16 +1755,16 @@ namespace AgOpenGPS
             {
                 int dots = (int)(dotDistance / lightbarCmPerPixel) + 1;
 
-                GL.PointSize(24.0f);
+                GL.PointSize(24.0f); //24.0f
                 GL.Color3(0.0f, 0.0f, 0.0f);
                 GL.Begin(PrimitiveType.Points);
-                for (int i = 2; i < dots + 1; i++) GL.Vertex2((i * -32), down);
+                for (int i = 2; i < dots + 1; i++) GL.Vertex2((i * -PixGrote), down);
                 GL.End();
 
-                GL.PointSize(16.0f);
+                GL.PointSize(16.0f); //16.0f
                 GL.Color3(0.980f, 0.30f, 0.0f);
                 GL.Begin(PrimitiveType.Points);
-                for (int i = 1; i < dots; i++) GL.Vertex2((i * -32 - 32), down);
+                for (int i = 1; i < dots; i++) GL.Vertex2((i * -PixGrote - PixGrote), down);
                 GL.End();
                 //return;
             }

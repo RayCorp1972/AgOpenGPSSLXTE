@@ -110,17 +110,17 @@ namespace AgIO
                     //watchdog for Ntrip
                     if (isNTRIP_Connecting)
                     {
-                        lblWatch.Text = "Authourizing";
+                        lblWatch.Text = "Controleren";
                     }
                     else
                     {
                         if (isNTRIP_RequiredOn && NTRIP_Watchdog > 10)
                         {
-                            lblWatch.Text = "Waiting";
+                            lblWatch.Text = "Wachten";
                         }
                         else
                         {
-                            lblWatch.Text = "Listening";
+                            lblWatch.Text = "Verbonden";
 
                             if (isNTRIP_RequiredOn)
                             {
@@ -135,7 +135,7 @@ namespace AgIO
 
                     if (sendGGAInterval > 0 && isNTRIP_Sending)
                     {
-                        lblWatch.Text = "Send GGA";
+                        lblWatch.Text = "Zenden";
                         isNTRIP_Sending = false;
                     }
                 }
@@ -155,7 +155,7 @@ namespace AgIO
 
         public void ConfigureNTRIP()
         {
-            lblWatch.Text = "Wait GPS";
+            lblWatch.Text = "Wachten op GPS";
             lblMessages.Text = "Reading...";
             lblNTRIP_IP.Text = "";
             lblMount.Text = "";

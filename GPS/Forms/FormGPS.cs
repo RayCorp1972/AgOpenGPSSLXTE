@@ -208,6 +208,30 @@ namespace AgOpenGPS
         /// </summary>
         public ResourceManager _rm;
 
+        public void wizardsMenu_Click(object sender, EventArgs e)
+        {
+       
+        }
+
+        private void toolStripDropDownButton4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Contains("2806"))
+            {
+                steerChartStripMenu.Visible = true;
+                wizardsMenu.Visible = true;
+                offsetFixToolStrip.Visible = true;
+
+                correctionToolStrip.Visible = true;
+                textBox1.Visible = false;
+
+            }
+        }
+
         /// <summary>
         /// Heading, Roll, Pitch, GPS, Properties
         /// </summary>
@@ -344,6 +368,18 @@ namespace AgOpenGPS
         //Initialize items before the form Loads or is visible
         private void FormGPS_Load(object sender, EventArgs e)
         {
+            var form = new FormAkkoord(this);
+            {
+                form.ShowDialog(this);
+            }
+            steerChartStripMenu.Visible = false;
+            wizardsMenu.Visible = false;
+            offsetFixToolStrip.Visible = false;
+            correctionToolStrip.Visible = false;
+            textBox1.Visible = false;
+
+
+
             this.MouseWheel += ZoomByMouseWheel;
 
             //start udp server is required
@@ -363,6 +399,7 @@ namespace AgOpenGPS
             timer2.Enabled = true;
 
             pictureboxStart.BringToFront();
+           //pictureBox1.BringToFront();
             pictureboxStart.Dock = System.Windows.Forms.DockStyle.Fill;
 
             //set the language to last used

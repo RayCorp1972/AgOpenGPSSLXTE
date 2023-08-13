@@ -41,6 +41,8 @@
             this.bthOK = new System.Windows.Forms.Button();
             this.btnAdjLeft = new System.Windows.Forms.Button();
             this.btnAdjRight = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinTurnRadius)).BeginInit();
             this.SuspendLayout();
             // 
@@ -248,12 +250,36 @@
             this.btnAdjRight.UseVisualStyleBackColor = false;
             this.btnAdjRight.Click += new System.EventHandler(this.btnAdjRight_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(165, 245);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 19);
+            this.label3.TabIndex = 451;
+            this.label3.Text = "Naar hier";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(-2, 245);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(135, 19);
+            this.label4.TabIndex = 452;
+            this.label4.Text = "Omdraaien A/B";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FormEditCurve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(253, 351);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnNoSave);
             this.Controls.Add(this.lblHalfWidth);
@@ -272,9 +298,10 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormEditCurve";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Edit AB Line";
+            this.Text = "Aanpassen AB-Lijn";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEditCurve_FormClosing);
             this.Load += new System.EventHandler(this.FormEditAB_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudMinTurnRadius)).EndInit();
@@ -297,5 +324,7 @@
         private System.Windows.Forms.Label lblHalfWidth;
         private System.Windows.Forms.Button btnNoSave;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -77,19 +77,19 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(55, 29);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 13);
+            this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 262;
-            this.label5.Text = "Cancel";
+            this.label5.Text = "Annuleren";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(520, 29);
+            this.label3.Location = new System.Drawing.Point(512, 29);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 13);
+            this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 260;
-            this.label3.Text = "Exit";
+            this.label3.Text = "Sluiten";
             // 
             // btnOk
             // 

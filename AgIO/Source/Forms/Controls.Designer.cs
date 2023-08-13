@@ -104,7 +104,7 @@ namespace AgIO
             if (isRadio_RequiredOn && isNTRIP_Connected)
             {
                 ShutDownNTRIP();
-                lblWatch.Text = "Stopped";
+                lblWatch.Text = "Inactief";
                 btnStartStopNtrip.Text = "OffLine";
                 isRadio_RequiredOn = false;
             }
@@ -160,7 +160,7 @@ namespace AgIO
                 if (isNTRIP_RequiredOn || isRadio_RequiredOn)
                 {
                     ShutDownNTRIP();
-                    lblWatch.Text = "Stopped";
+                    lblWatch.Text = "Inactief";
                     btnStartStopNtrip.Text = "OffLine";
                     isNTRIP_RequiredOn = false;
                     isRadio_RequiredOn = false;
@@ -171,7 +171,7 @@ namespace AgIO
                 {
                     isNTRIP_RequiredOn = Properties.Settings.Default.setNTRIP_isOn;
                     isRadio_RequiredOn = Properties.Settings.Default.setRadio_isOn;
-                    lblWatch.Text = "Waiting";
+                    lblWatch.Text = "Wachten";
                     lblNTRIP_IP.Text = "--";
                     lblMount.Text= "--";
                 }
