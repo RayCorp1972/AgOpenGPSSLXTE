@@ -220,6 +220,10 @@ namespace AgOpenGPS
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            if (isKeyboardOn)
+            {
+                KeyboardToText((TextBox)sender, this);
+            }
             if (textBox1.Text.Contains("2806"))
             {
                 steerChartStripMenu.Visible = true;
