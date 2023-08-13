@@ -26,6 +26,10 @@ namespace AgOpenGPS
         [System.Runtime.InteropServices.DllImport("User32.dll")]
         private static extern bool SetForegroundWindow(IntPtr handle);
 
+
+     
+        
+       
         [System.Runtime.InteropServices.DllImport("User32.dll")]
         private static extern bool ShowWindow(IntPtr hWind, int nCmdShow);
 
@@ -108,13 +112,16 @@ namespace AgOpenGPS
 
         public int pbarSteer, pbarMachine, pbarUDP;
 
+
+
         public double nudNumber = 0;
 
         public double m2InchOrCm, inchOrCm2m, m2FtOrM, ftOrMtoM, cm2CmOrIn, inOrCm2Cm;
         public string unitsFtM, unitsInCm;
 
         public char[] hotkeys;
-
+        public double treeSpacingCounter = 0.00;
+        public int treeTrigger = 0;
         //used by filePicker Form to return picked file and directory
         public string filePickerFileAndDirectory;
 
@@ -207,7 +214,7 @@ namespace AgOpenGPS
         /// Resource manager for gloabal strings
         /// </summary>
         public ResourceManager _rm;
-
+        public CTree Tree;
         public void wizardsMenu_Click(object sender, EventArgs e)
         {
        
@@ -234,6 +241,25 @@ namespace AgOpenGPS
                 textBox1.Visible = false;
 
             }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            label3.Visible = true;
+            //label3.BackColor = ButtonColor;
+            //check if window already exists
+            Form fc = Application.OpenForms["FormTreePlant"];
+
+            if (fc != null)
+            {
+                fc.Focus();
+                return;
+            }
+
+            //
+            Form form = new FormTreePlant(this);
+            form.Show();
         }
 
         /// <summary>
@@ -349,7 +375,8 @@ namespace AgOpenGPS
 
             //start the stopwatch
             //swFrame.Start();
-
+            Tree = new CTree(this);
+            Tree.ptList?.Clear();
             //instance of tram
             tram = new CTram(this);
 
@@ -391,7 +418,7 @@ namespace AgOpenGPS
 
             //boundaryToolStripBtn.Enabled = false;
             FieldMenuButtonEnableDisable(false);
-
+            Tree.ptList?.Clear();
             panelRight.Enabled = false;
 
             oglMain.Left = 75;

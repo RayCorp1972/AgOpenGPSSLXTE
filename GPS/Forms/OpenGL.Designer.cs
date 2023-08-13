@@ -349,7 +349,8 @@ namespace AgOpenGPS
                                 bnd.bndList[0].hdLine.DrawPolygon();
                         }
                     }
-
+                    if (flagPts.Count > 0) DrawFlags();
+                    if (Tree.ptList.Count > 0) Tree.DrawTrees();
                     if (flagPts.Count > 0) DrawFlags();
 
                     //Direct line to flag if flag selected
@@ -454,7 +455,7 @@ namespace AgOpenGPS
                         oglBack.Refresh();
 
                         p_239.pgn[p_239.geoStop] = mc.isOutOfBounds ? (byte)1 : (byte)0;
-
+                        p_239.pgn[p_239.tree] = treeTrigger == 1 ? (byte)1 : (byte)0;
                         SendPgnToLoop(p_239.pgn);
                         if (!tool.isSectionsNotZones)
                             SendPgnToLoop(p_229.pgn);

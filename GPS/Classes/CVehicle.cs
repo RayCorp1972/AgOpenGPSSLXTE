@@ -8,7 +8,8 @@ namespace AgOpenGPS
     public class CVehicle
     {
         private readonly FormGPS mf;
-
+       
+        
         public bool isSteerAxleAhead;
         public bool isPivotBehindAntenna;
 
@@ -46,7 +47,7 @@ namespace AgOpenGPS
         public int modeTime = 0;
 
         public double functionSpeedLimit;
-
+        public double treeSpacing;
 
         public CVehicle(FormGPS _f)
         {

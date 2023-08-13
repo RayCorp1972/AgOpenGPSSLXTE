@@ -19,7 +19,7 @@ namespace AgOpenGPS
         private int A, B, C, D, E, start = 99999, end = 99999;
 
         private bool isDrawSections = false;
-        private bool isPan = false;
+
         private vec3[] arr;
         public FormABDraw(Form callingForm)
         {
@@ -46,14 +46,9 @@ namespace AgOpenGPS
 
         private void FormABDraw_Load(object sender, EventArgs e)
         {
-
-            this.MouseWheel += ZoomByMouseWheel;
             int cnt = mf.bnd.bndList[0].fenceLine.Count;
-           
             arr = new vec3[cnt * 2];
-
-            
-            int cntTree = 0;
+             int cntTree = 0;
             if (mf.Tree.ptList.Count > 0)
             {
                 cntTree = mf.Tree.ptList.Count;
@@ -73,24 +68,6 @@ namespace AgOpenGPS
                 arr[i].northing = mf.bnd.bndList[0].fenceLine[i - cnt].northing;
                 arr[i].heading = mf.bnd.bndList[0].fenceLine[i - cnt].heading;
             }
-            if (mf.Tree.ptList.Count > 0)
-            {
-                cntTree = mf.Tree.ptList.Count;
-                vec3 point = new vec3();
-                int numb = 0;
-                for (int i = (cnt * 2); i < (cnt * 2) + cntTree; i++)
-                {
-                    point.easting = mf.Tree.ptList[numb].easting;
-                    point.northing = mf.Tree.ptList[numb].northing;
-                    point.heading = mf.Tree.ptList[numb].heading;
-                    numb++;
-                    arr[i] = point;
-
-
-                }
-            }
-
-
 
             nudDistance.Value = (decimal)Math.Round(((mf.tool.width * mf.m2InchOrCm) * 0.5), 0); // 
             label6.Text = Math.Round((mf.tool.width * mf.m2InchOrCm), 0).ToString();
@@ -101,74 +78,7 @@ namespace AgOpenGPS
             else btnDrawSections.Image = Properties.Resources.MappingOff;
 
         }
-        public double zoomValue = 1;
-        public double camSetDistance = 1;
-        private void ZoomByMouseWheel(object sender, MouseEventArgs e)
-        {
-            if (!isPan)
-            {
-                if (e.Delta < 0)
-                {
-                    if (zoomValue <= 10) zoomValue += zoomValue * 0.06;
 
-                    camSetDistance = zoomValue * 1;
-
-                }
-                else
-                {
-                    if (zoomValue >= .1) zoomValue += zoomValue * -0.06;
-
-
-
-                    camSetDistance = zoomValue * 1;
-
-                }
-            }
-
-
-        }
-
-        private void RefreshARR()
-        {
-            int cnt = mf.bnd.bndList[0].fenceLine.Count;
-            int cntTree = 0;
-            if (mf.Tree.ptList.Count > 0)
-            {
-                cntTree = mf.Tree.ptList.Count;
-            }
-            arr = new vec3[(cnt * 2) + cntTree];
-
-
-            for (int i = 0; i < cnt; i++)
-            {
-                arr[i].easting = mf.bnd.bndList[0].fenceLine[i].easting;
-                arr[i].northing = mf.bnd.bndList[0].fenceLine[i].northing;
-                arr[i].heading = mf.bnd.bndList[0].fenceLine[i].heading;
-            }
-
-            for (int i = cnt; i < cnt * 2; i++)
-            {
-                arr[i].easting = mf.bnd.bndList[0].fenceLine[i - cnt].easting;
-                arr[i].northing = mf.bnd.bndList[0].fenceLine[i - cnt].northing;
-                arr[i].heading = mf.bnd.bndList[0].fenceLine[i - cnt].heading;
-            }
-            if (mf.Tree.ptList.Count > 0)
-            {
-                cntTree = mf.Tree.ptList.Count;
-                vec3 point = new vec3();
-                int numb = 0;
-                for (int i = (cnt * 2); i < (cnt * 2) + cntTree; i++)
-                {
-                    point.easting = mf.Tree.ptList[numb].easting;
-                    point.northing = mf.Tree.ptList[numb].northing;
-                    point.heading = mf.Tree.ptList[numb].heading;
-                    numb++;
-                    arr[i] = point;
-
-
-                }
-            }
-        }
         private void FormABDraw_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (mf.ABLine.numABLineSelected > 0)
@@ -861,8 +771,6 @@ namespace AgOpenGPS
             GL.Flush();
             oglSelf.SwapBuffers();
         }
-
-
 
         private void DrawBuiltLines()
         {
