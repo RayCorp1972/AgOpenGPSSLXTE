@@ -304,11 +304,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(29, 143);
+            this.label2.Location = new System.Drawing.Point(16, 146);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 19);
+            this.label2.Size = new System.Drawing.Size(135, 19);
             this.label2.TabIndex = 215;
-            this.label2.Text = "Distance To Flag:";
+            this.label2.Text = "Aftand tot marker";
             // 
             // lblDistanceToFlag
             // 
@@ -351,7 +351,7 @@
             this.Name = "FormFlags";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Flags";
+            this.Text = "Markeringen";
             this.Load += new System.EventHandler(this.FormFlags_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

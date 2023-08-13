@@ -118,12 +118,12 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(17, 127);
+            this.label2.Location = new System.Drawing.Point(15, 127);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 23);
+            this.label2.Size = new System.Drawing.Size(86, 23);
             this.label2.TabIndex = 478;
-            this.label2.Text = "Remain:";
+            this.label2.Text = "Te doen:";
             // 
             // lblAcresRemain
             // 
@@ -154,19 +154,19 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(11, 5);
+            this.label3.Location = new System.Drawing.Point(5, 5);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 23);
+            this.label3.Size = new System.Drawing.Size(71, 23);
             this.label3.TabIndex = 481;
-            this.label3.Text = "Rate:";
+            this.label3.Text = "Afgifte:";
             // 
             // lblTotalArea
             // 
             this.lblTotalArea.AutoSize = true;
             this.lblTotalArea.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalArea.ForeColor = System.Drawing.Color.White;
-            this.lblTotalArea.Location = new System.Drawing.Point(95, 48);
+            this.lblTotalArea.Location = new System.Drawing.Point(113, 48);
             this.lblTotalArea.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTotalArea.Name = "lblTotalArea";
             this.lblTotalArea.Size = new System.Drawing.Size(73, 23);
@@ -178,19 +178,19 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(39, 48);
+            this.label4.Location = new System.Drawing.Point(53, 48);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 23);
+            this.label4.Size = new System.Drawing.Size(68, 23);
             this.label4.TabIndex = 483;
-            this.label4.Text = "Total:";
+            this.label4.Text = "Totaal:";
             // 
             // lblApplied
             // 
             this.lblApplied.AutoSize = true;
             this.lblApplied.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApplied.ForeColor = System.Drawing.Color.White;
-            this.lblApplied.Location = new System.Drawing.Point(95, 75);
+            this.lblApplied.Location = new System.Drawing.Point(125, 75);
             this.lblApplied.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblApplied.Name = "lblApplied";
             this.lblApplied.Size = new System.Drawing.Size(61, 23);
@@ -202,12 +202,12 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(18, 75);
+            this.label8.Location = new System.Drawing.Point(5, 75);
             this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 23);
+            this.label8.Size = new System.Drawing.Size(116, 23);
             this.label8.TabIndex = 485;
-            this.label8.Text = "Applied:";
+            this.label8.Text = "Toegediend:";
             // 
             // lblRemainPercent
             // 
@@ -237,7 +237,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(202, 269);
+            this.ClientSize = new System.Drawing.Size(218, 269);
             this.Controls.Add(this.lblRemainPercent);
             this.Controls.Add(this.lblApplied);
             this.Controls.Add(this.label8);

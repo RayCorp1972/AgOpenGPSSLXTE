@@ -227,9 +227,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(368, 89);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 16);
+            this.label5.Size = new System.Drawing.Size(43, 16);
             this.label5.TabIndex = 464;
-            this.label5.Text = "Smooth";
+            this.label5.Text = "Rustig";
             // 
             // hsbarSmooth
             // 
@@ -247,7 +247,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(585, 89);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 16);
+            this.label4.Size = new System.Drawing.Size(41, 16);
             this.label4.TabIndex = 466;
             this.label4.Text = "Direct";
             // 
@@ -258,9 +258,9 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(400, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(204, 25);
+            this.label3.Size = new System.Drawing.Size(219, 25);
             this.label3.TabIndex = 467;
-            this.label3.Text = "Camera Behaviour";
+            this.label3.Text = "Camera instellingen";
             // 
             // FormColor
             // 
@@ -295,7 +295,7 @@
             this.Name = "FormColor";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Color Set";
+            this.Text = "Kleur aanpassen";
             this.Load += new System.EventHandler(this.FormDisplaySettings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -56,7 +56,7 @@
             // 
             this.nudSpacing.BackColor = System.Drawing.Color.AliceBlue;
             this.nudSpacing.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudSpacing.Location = new System.Drawing.Point(185, 123);
+            this.nudSpacing.Location = new System.Drawing.Point(119, 123);
             this.nudSpacing.Maximum = new decimal(new int[] {
             4000,
             0,
@@ -75,11 +75,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(19, 140);
+            this.label1.Location = new System.Drawing.Point(44, 95);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 50);
+            this.label1.Size = new System.Drawing.Size(295, 25);
             this.label1.TabIndex = 253;
-            this.label1.Text = "Boundary Gap\r\nSpacing (cm)";
+            this.label1.Text = "Perceel grens afstand (cm)";
             // 
             // btnCancel
             // 
@@ -120,7 +120,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Make Boundary Contour";
+            this.Text = "Maak perceel grens";
             this.Load += new System.EventHandler(this.FormMakeBndCon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudSpacing)).EndInit();
             this.ResumeLayout(false);

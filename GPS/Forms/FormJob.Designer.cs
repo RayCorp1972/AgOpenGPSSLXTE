@@ -30,6 +30,7 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnFromExisting = new System.Windows.Forms.Button();
             this.lblSatsTracked = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblLongitude = new System.Windows.Forms.Label();
-            this.btnFromExisting = new System.Windows.Forms.Button();
             this.btnJobNew = new System.Windows.Forms.Button();
             this.btnInField = new System.Windows.Forms.Button();
             this.btnJobResume = new System.Windows.Forms.Button();
@@ -90,6 +90,26 @@
             this.panel1.Size = new System.Drawing.Size(759, 499);
             this.panel1.TabIndex = 90;
             // 
+            // btnFromExisting
+            // 
+            this.btnFromExisting.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnFromExisting.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnFromExisting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFromExisting.Font = new System.Drawing.Font("Tahoma", 20.25F);
+            this.btnFromExisting.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnFromExisting.Image = global::AgOpenGPS.Properties.Resources.FileExisting;
+            this.btnFromExisting.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFromExisting.Location = new System.Drawing.Point(35, 271);
+            this.btnFromExisting.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnFromExisting.Name = "btnFromExisting";
+            this.btnFromExisting.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnFromExisting.Size = new System.Drawing.Size(268, 82);
+            this.btnFromExisting.TabIndex = 104;
+            this.btnFromExisting.Text = "Van bestaand";
+            this.btnFromExisting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFromExisting.UseVisualStyleBackColor = false;
+            this.btnFromExisting.Click += new System.EventHandler(this.btnFromExisting_Click);
+            // 
             // lblSatsTracked
             // 
             this.lblSatsTracked.AutoSize = true;
@@ -122,12 +142,12 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(516, 41);
+            this.label8.Location = new System.Drawing.Point(488, 41);
             this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(24, 18);
+            this.label8.Size = new System.Drawing.Size(55, 18);
             this.label8.TabIndex = 99;
-            this.label8.Text = "Alt";
+            this.label8.Text = "Hoogte";
             // 
             // lblAltitude
             // 
@@ -135,7 +155,7 @@
             this.lblAltitude.BackColor = System.Drawing.Color.Transparent;
             this.lblAltitude.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAltitude.ForeColor = System.Drawing.Color.White;
-            this.lblAltitude.Location = new System.Drawing.Point(540, 41);
+            this.lblAltitude.Location = new System.Drawing.Point(555, 41);
             this.lblAltitude.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblAltitude.Name = "lblAltitude";
             this.lblAltitude.Size = new System.Drawing.Size(67, 18);
@@ -151,9 +171,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(488, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 18);
+            this.label2.Size = new System.Drawing.Size(64, 18);
             this.label2.TabIndex = 97;
-            this.label2.Text = "Quality";
+            this.label2.Text = "Kwaliteit:";
             // 
             // lblFixQuality
             // 
@@ -161,7 +181,7 @@
             this.lblFixQuality.BackColor = System.Drawing.Color.Transparent;
             this.lblFixQuality.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFixQuality.ForeColor = System.Drawing.Color.White;
-            this.lblFixQuality.Location = new System.Drawing.Point(540, 17);
+            this.lblFixQuality.Location = new System.Drawing.Point(556, 17);
             this.lblFixQuality.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblFixQuality.Name = "lblFixQuality";
             this.lblFixQuality.Size = new System.Drawing.Size(66, 18);
@@ -217,26 +237,6 @@
             this.lblLongitude.TabIndex = 94;
             this.lblLongitude.Text = "Longitude";
             // 
-            // btnFromExisting
-            // 
-            this.btnFromExisting.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnFromExisting.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnFromExisting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFromExisting.Font = new System.Drawing.Font("Tahoma", 20.25F);
-            this.btnFromExisting.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnFromExisting.Image = global::AgOpenGPS.Properties.Resources.FileExisting;
-            this.btnFromExisting.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFromExisting.Location = new System.Drawing.Point(35, 271);
-            this.btnFromExisting.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.btnFromExisting.Name = "btnFromExisting";
-            this.btnFromExisting.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnFromExisting.Size = new System.Drawing.Size(268, 82);
-            this.btnFromExisting.TabIndex = 104;
-            this.btnFromExisting.Text = "From Existing";
-            this.btnFromExisting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFromExisting.UseVisualStyleBackColor = false;
-            this.btnFromExisting.Click += new System.EventHandler(this.btnFromExisting_Click);
-            // 
             // btnJobNew
             // 
             this.btnJobNew.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -252,7 +252,7 @@
             this.btnJobNew.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnJobNew.Size = new System.Drawing.Size(268, 82);
             this.btnJobNew.TabIndex = 2;
-            this.btnJobNew.Text = "New";
+            this.btnJobNew.Text = "Nieuw";
             this.btnJobNew.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnJobNew.UseVisualStyleBackColor = false;
             this.btnJobNew.Click += new System.EventHandler(this.btnJobNew_Click);
@@ -272,7 +272,7 @@
             this.btnInField.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnInField.Size = new System.Drawing.Size(268, 82);
             this.btnInField.TabIndex = 89;
-            this.btnInField.Text = "Drive In";
+            this.btnInField.Text = "In rijden";
             this.btnInField.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInField.UseVisualStyleBackColor = false;
             this.btnInField.Click += new System.EventHandler(this.btnInField_Click);
@@ -292,7 +292,7 @@
             this.btnJobResume.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnJobResume.Size = new System.Drawing.Size(268, 82);
             this.btnJobResume.TabIndex = 1;
-            this.btnJobResume.Text = "Resume";
+            this.btnJobResume.Text = "Hervat";
             this.btnJobResume.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnJobResume.UseVisualStyleBackColor = false;
             this.btnJobResume.Click += new System.EventHandler(this.btnJobResume_Click);
@@ -332,7 +332,7 @@
             this.btnFromKML.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnFromKML.Size = new System.Drawing.Size(268, 82);
             this.btnFromKML.TabIndex = 91;
-            this.btnFromKML.Text = "From KML";
+            this.btnFromKML.Text = "Vanuit KML";
             this.btnFromKML.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFromKML.UseVisualStyleBackColor = false;
             this.btnFromKML.Click += new System.EventHandler(this.btnFromKML_Click);

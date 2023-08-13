@@ -324,9 +324,9 @@
             this.lblToolWidthHalf.ForeColor = System.Drawing.Color.Black;
             this.lblToolWidthHalf.Location = new System.Drawing.Point(110, 15);
             this.lblToolWidthHalf.Name = "lblToolWidthHalf";
-            this.lblToolWidthHalf.Size = new System.Drawing.Size(105, 32);
+            this.lblToolWidthHalf.Size = new System.Drawing.Size(117, 32);
             this.lblToolWidthHalf.TabIndex = 463;
-            this.lblToolWidthHalf.Text = "Tool";
+            this.lblToolWidthHalf.Text = "Werktuig";
             this.lblToolWidthHalf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTramWidth

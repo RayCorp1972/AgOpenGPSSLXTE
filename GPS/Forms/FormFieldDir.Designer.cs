@@ -120,9 +120,9 @@
             this.label1.Location = new System.Drawing.Point(34, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 23);
+            this.label1.Size = new System.Drawing.Size(137, 23);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Enter Field Name";
+            this.label1.Text = "Perceel naam";
             // 
             // btnAddTime
             // 
