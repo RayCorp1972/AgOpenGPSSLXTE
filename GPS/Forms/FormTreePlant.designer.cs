@@ -57,7 +57,7 @@
             this.lblDistanceTree.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDistanceTree.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDistanceTree.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblDistanceTree.Location = new System.Drawing.Point(133, 56);
+            this.lblDistanceTree.Location = new System.Drawing.Point(125, 56);
             this.lblDistanceTree.Name = "lblDistanceTree";
             this.lblDistanceTree.Size = new System.Drawing.Size(92, 35);
             this.lblDistanceTree.TabIndex = 305;
@@ -128,7 +128,7 @@
             this.btnStop.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnStop.Image = global::AgOpenGPS.Properties.Resources.SwitchOff;
             this.btnStop.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnStop.Location = new System.Drawing.Point(262, 214);
+            this.btnStop.Location = new System.Drawing.Point(254, 214);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(90, 96);
             this.btnStop.TabIndex = 141;
@@ -279,7 +279,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(362, 322);
+            this.ClientSize = new System.Drawing.Size(354, 322);
             this.ControlBox = false;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox1);
