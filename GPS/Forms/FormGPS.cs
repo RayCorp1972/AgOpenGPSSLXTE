@@ -225,6 +225,11 @@ namespace AgOpenGPS
 
         }
 
+        private void TextBox1_Click(object sender, System.EventArgs e)
+        {
+            
+        }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (isKeyboardOn)
