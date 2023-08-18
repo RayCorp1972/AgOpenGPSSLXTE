@@ -70,6 +70,12 @@ namespace AgIO
         //The base directory where Drive will be stored and fields and vehicles branch from
         public string baseDirectory;
 
+
+        // Track & Trace
+        public bool button1WasClicked;
+        public bool TrackerAan;
+        public int TrackTraceCounter = 0;
+
         //current directory of Comm storage
         public string commDirectory, commFileName = "";
 
@@ -81,6 +87,8 @@ namespace AgIO
         //First run
         private void FormLoop_Load(object sender, EventArgs e)
         {
+            TrackerAan = Settings.Default.TrackEnabled;
+
             if (Settings.Default.setF_workingDirectory == "Default")
                 baseDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AgOpenGPS\\";
             else baseDirectory = Settings.Default.setF_workingDirectory + "\\AgOpenGPS\\";
@@ -327,7 +335,9 @@ namespace AgIO
             Settings.Default.setPort_wasSteerModuleConnected = wasSteerModuleConnectedLastRun;
             Settings.Default.setPort_wasMachineModuleConnected = wasMachineModuleConnectedLastRun;
             Settings.Default.setPort_wasRtcmConnected = wasRtcmConnectedLastRun;
-
+            //Track&trace
+            Settings.Default.TrackEnabled = false;
+            Settings.Default.button1WasClicked = false;
             Settings.Default.Save();
 
             if (loopBackSocket != null)
@@ -692,6 +702,42 @@ namespace AgIO
             }
         }
 
+
+        //Track&Trace
+        private void TrackandTrace()
+        {
+
+            if (TrackTraceCounter == 40 && TrackerAan == true)
+            {
+
+                string Id = Properties.Settings.Default.TrackId;
+                string IP = Properties.Settings.Default.TrackIP;
+                string Port = Properties.Settings.Default.TrackPort;
+                string date = DateTime.Now.ToString("yyyy/MM/dd");
+                string Time = DateTime.Now.ToString("HH:mm:ss");
+                string lat = lblCurrentLat.Text.Replace(",", ".");
+                string lon = lblCurentLon.Text.Replace(",", ".");
+                var request = (HttpWebRequest)WebRequest.Create(IP + ":" + Port + "/?id=" + Id + "&timestamp=" + date + "T" + Time + "Z" + "&lat=" + lat + "&lon=" + lon);
+                ////http://gps.raycorp.nl:5055/?id=AOG1&timestamp=" + ZendTijd + "&lat=" + Lat + "&lon=" + Long;
+                var postData = "";
+                var data = Encoding.ASCII.GetBytes(postData);
+
+                request.Method = "POST";
+                request.ContentType = "application/json";
+                request.ContentLength = data.Length;
+
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+                request.Abort();
+                TrackTraceCounter = 0;
+
+            }
+
+            else return;
+        }
+
         private void ShowAgIO()
         {
             Process[] processName = Process.GetProcessesByName("AgIO");
@@ -726,6 +772,13 @@ namespace AgIO
 
         private void DoTraffic()
         {
+
+            TrackerAan = Properties.Settings.Default.TrackEnabled;
+            //label15.Text = TrackerAan.ToString();
+            //Track and Trace
+            TrackandTrace();
+            TrackTraceCounter++;
+
             traffic.helloFromMachine++;
             traffic.helloFromAutoSteer++;
             traffic.helloFromIMU++;

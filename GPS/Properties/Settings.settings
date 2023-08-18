@@ -326,12 +326,6 @@
     <Setting Name="setBrand_TBrand" Type="AgOpenGPS.TBrand" Scope="User">
       <Value Profile="(Default)">AGOpenGPS</Value>
     </Setting>
-    <Setting Name="setBrand_HBrand" Type="AgOpenGPS.HBrand" Scope="User">
-      <Value Profile="(Default)">AGOpenGPS</Value>
-    </Setting>
-    <Setting Name="setBrand_WDBrand" Type="AgOpenGPS.WDBrand" Scope="User">
-      <Value Profile="(Default)">AGOpenGPS</Value>
-    </Setting>
     <Setting Name="setHeadland_isSectionControlled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
@@ -664,6 +658,30 @@
     </Setting>
     <Setting Name="setAS_minSteerSpeed" Type="System.Double" Scope="User">
       <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="setBrand_HBrand" Type="AgOpenGPS.HBrand" Scope="User">
+      <Value Profile="(Default)">AgOpenGPS</Value>
+    </Setting>
+    <Setting Name="setBrand_WDBrand" Type="AgOpenGPS.WDBrand" Scope="User">
+      <Value Profile="(Default)">AgOpenGPS</Value>
+    </Setting>
+    <Setting Name="TrackTraceAanUIT" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Uit</Value>
+    </Setting>
+    <Setting Name="TrackEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="TrackIP" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TrackPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TrackId" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="button1WasClicked" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -15,7 +15,7 @@ namespace AgIO
         //class variables
         private readonly FormLoop mf;
         private bool ntripStatusChanged= false;
-
+        public bool button1WasClicked;
         public FormNtrip(Form callingForm)
         {
             mf = callingForm as FormLoop;
@@ -54,6 +54,25 @@ namespace AgIO
 
         private void FormNtrip_Load(object sender, EventArgs e)
         {
+            //Track and Trace
+            button1WasClicked = Properties.Settings.Default.button1WasClicked;
+
+            if (button1WasClicked == true)
+            {
+                TtBtn.Text = "On";
+                TtBtn.BackColor = System.Drawing.Color.LightGreen;
+            }
+            else
+            {
+                TtBtn.BackColor = System.Drawing.Color.Salmon;
+                TtBtn.Text = "Off";
+            }
+            txtBoxServerIP.Text = Properties.Settings.Default.TrackIP;
+            txtServerPort.Text = Properties.Settings.Default.TrackPort;
+            txtBoxId.Text = Properties.Settings.Default.TrackId;
+
+
+
             cboxIsNTRIPOn.Checked = Properties.Settings.Default.setNTRIP_isOn;
        
             if (!cboxIsNTRIPOn.Checked) tabControl1.Enabled = false;    
@@ -237,9 +256,13 @@ namespace AgIO
             mf.isSendToSerial = cboxToSerial.Checked;
             mf.isSendToUDP = cboxToUDP.Checked;
 
-           // mf.packetSizeNTRIP = Convert.ToInt32(comboboxPacketSize.Text);
+            // mf.packetSizeNTRIP = Convert.ToInt32(comboboxPacketSize.Text);
             //Properties.Settings.Default.setNTRIP_packetSize = Convert.ToInt32(comboboxPacketSize.Text);
+            //Track and Trace
 
+            Properties.Settings.Default.TrackIP = txtBoxServerIP.Text;
+            Properties.Settings.Default.TrackPort = txtServerPort.Text;
+            Properties.Settings.Default.TrackId = txtBoxId.Text;
 
             if (Properties.Settings.Default.setNTRIP_isOn && Properties.Settings.Default.setRadio_isOn)
             {
@@ -452,6 +475,16 @@ namespace AgIO
         private void btnHelp_Click(object sender, EventArgs e)
         {
             //System.Diagnostics.Process.Start(gStr.gsNTRIP_Help);
+        }
+
+        private void TtBtn_Click(object sender, EventArgs e)
+        {
+            
+                Properties.Settings.Default.button1WasClicked = true;
+                TtBtn.Text = "On";
+                TtBtn.BackColor = System.Drawing.Color.LightGreen;
+                Properties.Settings.Default.TrackEnabled = true;
+            
         }
     }
 }
