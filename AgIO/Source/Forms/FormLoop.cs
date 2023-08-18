@@ -88,8 +88,7 @@ namespace AgIO
         private void FormLoop_Load(object sender, EventArgs e)
         {
 
-            lblCurentLon.Text = "3.99942";//longitude.ToString("N7");
-            lblCurrentLat.Text = "51.65024";//latitude.ToString("N7");
+            
 
             //51.65036073941799, 4.613702307749019
 
@@ -386,11 +385,10 @@ namespace AgIO
 
             if (focusSkipCounter != 0)
             {
-                // lblCurentLon.Text = longitude.ToString("N7");
-                //lblCurrentLat.Text = latitude.ToString("N7");
+                lblCurentLon.Text = longitude.ToString("N7");
+                lblCurrentLat.Text = latitude.ToString("N7");
 
-                lblCurentLon.Text = "3.99942";//longitude.ToString("N7");
-                lblCurrentLat.Text = "51.65025";//latitude.ToString("N7");
+
             }
 
             //do all the NTRIP routines
@@ -728,7 +726,7 @@ namespace AgIO
                 string lat = lblCurrentLat.Text.Replace(",", ".");
                 string lon = lblCurentLon.Text.Replace(",", ".");
                 //var request = (HttpWebRequest)WebRequest.Create(IP + ":" + Port + "/?id=" + Id + "&timestamp=" + date + "T" + Time + "Z" + "&lat=" + lat + "&lon=" + lon);
-                var request = (HttpWebRequest)WebRequest.Create(IP + ":" + Port + "/?id=" + Id  + "&lat=" + "51.65025" + "&lon=" + "3.99942" + "&timestamp=" + date + "T" + Time + "Z");
+                var request = (HttpWebRequest)WebRequest.Create(IP + ":" + Port + "/?id=" + Id  + "&lat=" + lat + "&lon=" + lon + "&timestamp=" + date + "T" + Time + "Z");
                 ////http://gps.raycorp.nl:5055/?id=AOG1&timestamp=" + ZendTijd + "&lat=" + Lat + "&lon=" + Long;
                 var postData = "";
                 var data = Encoding.ASCII.GetBytes(postData);
@@ -801,11 +799,10 @@ namespace AgIO
                 //reset all counters
                 traffic.cntrGPSOut = 0;
 
-                // lblCurentLon.Text = longitude.ToString("N7");
-                //lblCurrentLat.Text = latitude.ToString("N7");
+                lblCurentLon.Text = longitude.ToString("N7");
+                lblCurrentLat.Text = latitude.ToString("N7");
 
-                lblCurentLon.Text = "3.99942";//longitude.ToString("N7");
-                lblCurrentLat.Text = "51.65025";//latitude.ToString("N7");
+             
             }
         }
 
