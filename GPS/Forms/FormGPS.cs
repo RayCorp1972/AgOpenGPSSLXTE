@@ -620,14 +620,14 @@ namespace AgOpenGPS
             {
                 if (autoBtnState == btnStates.Auto)
                 {
-                    TimedMessageBox(2000, "Safe Shutdown", "Turn off Auto Section Control");
+                    TimedMessageBox(2000, "Om veilig af te sluiten", "Sluit auto Sectiecontrol");
                     e.Cancel = true;
                     return;
                 }
 
                 if (manualBtnState == btnStates.On)
                 {
-                    TimedMessageBox(2000, "Safe Shutdown", "Turn off Manual Section Control");
+                    TimedMessageBox(2000, "Om veilig af te sluiten", "Sluit auto Sectiecontrol");
                     e.Cancel = true;
                     return;
                 }
