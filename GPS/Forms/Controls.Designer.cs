@@ -1343,7 +1343,7 @@ namespace AgOpenGPS
 
             if (ct.isContourBtnOn)
             {
-                var form = new FormTimedMessage(2000, (gStr.gsContourOn), ("Turn Off Contour"));
+                var form = new FormTimedMessage(2000, (gStr.gsContourOn), ("Sluit contour"));
                 form.Show(this);
                 return;
             }

@@ -167,7 +167,7 @@ namespace AgOpenGPS
                     {
                         var form = new FormTimedMessage(2000, gStr.gsCurveLineFileIsCorrupt, gStr.gsButFieldIsLoaded);
                         form.Show(this);
-                        WriteErrorLog("Load Curve Line" + er.ToString());
+                        WriteErrorLog("Laad Bocht" + er.ToString());
                     }
                 }
             }
@@ -270,7 +270,7 @@ namespace AgOpenGPS
                     }
                     catch (Exception er)
                     {
-                        var form = new FormTimedMessage(2000, "AB Line Corrupt", "Please delete it!!!");
+                        var form = new FormTimedMessage(2000, "AB-Lijn Corrupt", "Verwijder deze a.u.b.!!!");
                         form.Show(this);
                         WriteErrorLog("FieldOpen, Loading ABLine, Corrupt ABLine File" + er);
                     }
@@ -723,7 +723,7 @@ namespace AgOpenGPS
                     {
                         WriteErrorLog("Section file" + e.ToString());
 
-                        var form = new FormTimedMessage(2000, "Section File is Corrupt", gStr.gsButFieldIsLoaded);
+                        var form = new FormTimedMessage(2000, "Sectie bestand is Corrupt", gStr.gsButFieldIsLoaded);
                         form.Show(this);
                     }
 
@@ -971,8 +971,8 @@ namespace AgOpenGPS
             fileAndDirectory = fieldsDirectory + currentFieldDirectory + "\\Tree.txt";
             if (!File.Exists(fileAndDirectory))
             {
-                var form = new FormTimedMessage(4000, "Missing Tree File", "But Field is Loaded");
-                form.Show();
+                //var form = new FormTimedMessage(4000, "Missing Tree File", "But Field is Loaded");
+                //form.Show();
                 //return;
             }
 
@@ -1048,7 +1048,7 @@ namespace AgOpenGPS
                     {
                         WriteErrorLog("Loading Tree file" + e.ToString());
 
-                        var form = new FormTimedMessage(4000, "Tree File is Corrupt", "But Field is Loaded");
+                        var form = new FormTimedMessage(4000, "Plant betand is corrupt", "Maar perceel is geladen");
                         form.Show();
 
                     }
@@ -1102,7 +1102,7 @@ namespace AgOpenGPS
 
                     catch (Exception e)
                     {
-                        var form = new FormTimedMessage(2000, "Headland File is Corrupt", "But Field is Loaded");
+                        var form = new FormTimedMessage(2000, "Kopakker bestand is Corrupt", "Maar perceel geladen");
                         form.Show(this);
                         WriteErrorLog("Load Headland Loop" + e.ToString());
                     }
@@ -1217,9 +1217,9 @@ namespace AgOpenGPS
 
                     catch (Exception e)
                     {
-                        var form = new FormTimedMessage(2000, "Tram is corrupt", gStr.gsButFieldIsLoaded);
+                        var form = new FormTimedMessage(2000, "Spuitpaden Corrupt", gStr.gsButFieldIsLoaded);
                         form.Show(this);
-                        WriteErrorLog("Load Boundary Line" + e.ToString());
+                        WriteErrorLog("Laad perceelgrens" + e.ToString());
                     }
                 }
             }
@@ -1268,7 +1268,7 @@ namespace AgOpenGPS
                     {
                         var form = new FormTimedMessage(2000, gStr.gsRecordedPathFileIsCorrupt, gStr.gsButFieldIsLoaded);
                         form.Show(this);
-                        WriteErrorLog("Load Recorded Path" + e.ToString());
+                        WriteErrorLog("Laad opgenomen pad" + e.ToString());
                     }
                 }
             }

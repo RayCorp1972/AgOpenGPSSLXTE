@@ -500,7 +500,7 @@
             this.simulatorOnToolStripMenuItem.CheckOnClick = true;
             this.simulatorOnToolStripMenuItem.Name = "simulatorOnToolStripMenuItem";
             this.simulatorOnToolStripMenuItem.Size = new System.Drawing.Size(319, 40);
-            this.simulatorOnToolStripMenuItem.Text = "Simulator On";
+            this.simulatorOnToolStripMenuItem.Text = "Simulator Aan";
             this.simulatorOnToolStripMenuItem.Click += new System.EventHandler(this.simulatorOnToolStripMenuItem_Click);
             // 
             // resetALLToolStripMenuItem
