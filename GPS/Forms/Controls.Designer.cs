@@ -2299,14 +2299,29 @@ namespace AgOpenGPS
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            isTT = !isTT;
-            if (isTT)
-                btnHelp.Image = Resources.HelpCancel;
-            else
+
+            DialogResult dialogResult = MessageBox.Show("Wilt u de Handleiding openen??", "Handleiding", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                btnHelp.Image = Resources.Help;
-                isTT = false;
+
+                String openPDFFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\HelpDoc.pdf";//PDF DOc name
+                System.IO.File.WriteAllBytes(openPDFFile, global::AgOpenGPS.Properties.Resources.Handleiding);//the resource automatically creates            
+                System.Diagnostics.Process.Start(openPDFFile);
+                //isTT = !isTT;
+                //if (isTT)
+                //    btnHelp.Image = Resources.HelpCancel;
+                //else
+                //{
+                //    btnHelp.Image = Resources.Help;
+                //    isTT = false;
+                //}
             }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+
+            }
+
         }
 
         private void ResetHelpBtn()
