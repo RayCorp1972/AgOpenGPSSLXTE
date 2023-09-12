@@ -355,30 +355,43 @@ namespace AgOpenGPS
 
         private void btnListDelete_Click(object sender, EventArgs e)
         {
-            if (lvLines.SelectedItems.Count > 0)
+            DialogResult dialogResult = MessageBox.Show("Weet u het zeker dat u deze AB-lijn wilt wissen", "AB-Lijn wissen", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                int num = lvLines.SelectedIndices[0];
-                mf.ABLine.lineArr.RemoveAt(num);
-                lvLines.SelectedItems[0].Remove();
 
-                mf.ABLine.numABLines = mf.ABLine.lineArr.Count;
-                if (mf.ABLine.numABLineSelected > mf.ABLine.numABLines) mf.ABLine.numABLineSelected = mf.ABLine.numABLines;
-
-                if (mf.ABLine.numABLines == 0)
+                if (lvLines.SelectedItems.Count > 0)
                 {
-                    mf.ABLine.DeleteAB();
+                    int num = lvLines.SelectedIndices[0];
+                    mf.ABLine.lineArr.RemoveAt(num);
+                    lvLines.SelectedItems[0].Remove();
+
+                    mf.ABLine.numABLines = mf.ABLine.lineArr.Count;
+                    if (mf.ABLine.numABLineSelected > mf.ABLine.numABLines) mf.ABLine.numABLineSelected = mf.ABLine.numABLines;
+
+                    if (mf.ABLine.numABLines == 0)
+                    {
+                        mf.ABLine.DeleteAB();
+                        if (mf.isAutoSteerBtnOn) mf.btnAutoSteer.PerformClick();
+                        if (mf.yt.isYouTurnBtnOn) mf.btnAutoYouTurn.PerformClick();
+                    }
+                    mf.FileSaveABLines();
+                }
+                else
+                {
                     if (mf.isAutoSteerBtnOn) mf.btnAutoSteer.PerformClick();
                     if (mf.yt.isYouTurnBtnOn) mf.btnAutoYouTurn.PerformClick();
                 }
-                mf.FileSaveABLines();
+
+
+                UpdateLineList();
+                lvLines.Focus();
             }
-            else
+            else if (dialogResult == DialogResult.No)
             {
-                if (mf.isAutoSteerBtnOn) mf.btnAutoSteer.PerformClick();
-                if (mf.yt.isYouTurnBtnOn) mf.btnAutoYouTurn.PerformClick();
+                return;
+
             }
-            UpdateLineList();
-            lvLines.Focus();
+
 
         }
 

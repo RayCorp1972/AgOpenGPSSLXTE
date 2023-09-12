@@ -698,7 +698,19 @@ namespace AgIO
                 lastHelloGPS = currentHello;
                 ShowAgIO();
             }
+
+            if (currentHello)
+            {
+                Hide();
+            }
+            else
+            {
+                return;
+            }
+
+            
         }
+
 
         private void FormLoop_Resize(object sender, EventArgs e)
         {
@@ -1001,7 +1013,16 @@ namespace AgIO
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult result3 = MessageBox.Show("Wilt u geheel afsluiten?",
+               "Geheel afsluiten?",
+               MessageBoxButtons.YesNo,
+               MessageBoxIcon.Question,
+               MessageBoxDefaultButton.Button2);
+
+            if (result3 == DialogResult.Yes)
+            {
+                Process.Start("shutdown", "/s /t 0");
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

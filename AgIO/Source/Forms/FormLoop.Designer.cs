@@ -101,6 +101,7 @@ namespace AgIO
             this.btnRelayTest = new System.Windows.Forms.Button();
             this.btnUDP = new System.Windows.Forms.Button();
             this.btnGPSData = new System.Windows.Forms.Button();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -260,7 +261,8 @@ namespace AgIO
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(64, 64);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1,
-            this.settingsMenuStrip});
+            this.settingsMenuStrip,
+            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(93, 410);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 11, 0);
@@ -939,6 +941,7 @@ namespace AgIO
             this.btnWindowsShutDown.Size = new System.Drawing.Size(63, 58);
             this.btnWindowsShutDown.TabIndex = 486;
             this.btnWindowsShutDown.UseVisualStyleBackColor = false;
+            this.btnWindowsShutDown.Visible = false;
             this.btnWindowsShutDown.Click += new System.EventHandler(this.btnWindowsShutDown_Click);
             // 
             // btnSlide
@@ -1093,6 +1096,12 @@ namespace AgIO
             this.btnGPSData.UseVisualStyleBackColor = false;
             this.btnGPSData.Click += new System.EventHandler(this.btnGPSData_Click);
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 65);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
             // FormLoop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -1245,6 +1254,7 @@ namespace AgIO
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.ToolStripMenuItem toolStripSerialMonitor;
         private System.Windows.Forms.ToolStripMenuItem toolStripUDPMonitor;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 
