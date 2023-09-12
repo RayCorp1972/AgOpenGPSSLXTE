@@ -327,22 +327,36 @@ namespace AgOpenGPS
 
         private void btnDeleteCurve_Click(object sender, EventArgs e)
         {
-            if (mf.curve.curveArr.Count > 0 && mf.curve.numCurveLineSelected > 0)
+
+            DialogResult dialogResult = MessageBox.Show("Weet u het zeker dat u deze Bocht wilt wissen", "Bocht wissen", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                mf.curve.curveArr.RemoveAt(mf.curve.numCurveLineSelected - 1);
-                mf.curve.numCurveLines--;
+
+                if (mf.curve.curveArr.Count > 0 && mf.curve.numCurveLineSelected > 0)
+                {
+                    mf.curve.curveArr.RemoveAt(mf.curve.numCurveLineSelected - 1);
+                    mf.curve.numCurveLines--;
+
+                }
+
+                if (mf.curve.numCurveLines > 0) mf.curve.numCurveLineSelected = 1;
+                else mf.curve.numCurveLineSelected = 0;
+
+                FixLabelsCurve();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
 
             }
-
-            if (mf.curve.numCurveLines > 0) mf.curve.numCurveLineSelected = 1;
-            else mf.curve.numCurveLineSelected = 0;
-
-            FixLabelsCurve();
-        }
+            }
 
         private void btnDeleteABLine_Click(object sender, EventArgs e)
         {
-            if (mf.ABLine.lineArr.Count > 0 && mf.ABLine.numABLineSelected > 0)
+            DialogResult dialogResult = MessageBox.Show("Weet u het zeker dat u deze AB-Lijn wilt wissen", "AB-Lijn wissen", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                if (mf.ABLine.lineArr.Count > 0 && mf.ABLine.numABLineSelected > 0)
             {
                 mf.ABLine.lineArr.RemoveAt(mf.ABLine.numABLineSelected - 1);
                 mf.ABLine.numABLines--;
@@ -353,6 +367,12 @@ namespace AgOpenGPS
             else mf.ABLine.numABLineSelected = 0;
 
             FixLabelsABLine();
+        }
+              else if (dialogResult == DialogResult.No)
+            {
+                return;
+
+            }
         }
 
         private void btnDrawSections_Click(object sender, EventArgs e)

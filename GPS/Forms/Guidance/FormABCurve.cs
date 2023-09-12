@@ -277,7 +277,13 @@ namespace AgOpenGPS
 
         private void btnListDelete_Click(object sender, EventArgs e)
         {
-            mf.curve.moveDistance = 0;
+
+            DialogResult dialogResult = MessageBox.Show("Weet u het zeker dat u deze Bocht wilt wissen", "Bocht wissen", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+
+
+                mf.curve.moveDistance = 0;
 
             if (lvLines.SelectedItems.Count > 0)
             {
@@ -302,6 +308,12 @@ namespace AgOpenGPS
 
             UpdateLineList();
             lvLines.Focus();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+
+            }
         }
 
         private void btnListUse_Click(object sender, EventArgs e)
