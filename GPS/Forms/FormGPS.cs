@@ -267,6 +267,16 @@ namespace AgOpenGPS
             form.Show();
         }
 
+        public void button1_Click(object sender, EventArgs e)
+        {
+            steerChartStripMenu.Visible = true;
+            wizardsMenu.Visible = true;
+            offsetFixToolStrip.Visible = true;
+
+            correctionToolStrip.Visible = true;
+            textBox1.Visible = false;
+        }
+
         /// <summary>
         /// Heading, Roll, Pitch, GPS, Properties
         /// </summary>

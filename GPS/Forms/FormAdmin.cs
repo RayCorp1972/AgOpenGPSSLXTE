@@ -44,18 +44,19 @@ namespace AgOpenGPS.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Contains("8888"))
-            {
-                mf.steerChartStripMenu.Visible = true;
-                
-
-                this.Close();
-
-
-               
-
-            }   
             
+            if (textBox1.Text.Contains("2806"))
+            {
+                {
+                    var frm = (FormGPS)this.Owner;
+                    if (frm != null)
+                        frm.button1.PerformClick();
+                }
+
+            }
+
+            Close();
+
 
 
 
@@ -66,6 +67,11 @@ namespace AgOpenGPS.Forms
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

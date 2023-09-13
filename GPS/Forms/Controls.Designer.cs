@@ -928,7 +928,10 @@ namespace AgOpenGPS
         private void menuLanguageTurkish_Click(object sender, EventArgs e)
         {
 
-            textBox1.Visible = true;
+            var form = new FormAdmin(this);
+            {
+                form.ShowDialog(this);
+            }
         }          
         private void finnishToolStripMenuItem_Click(object sender, EventArgs e)
         {

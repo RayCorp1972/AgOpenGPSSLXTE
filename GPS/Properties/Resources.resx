@@ -1235,6 +1235,6 @@
     <value>..\Resources\clearly.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Handleiding" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Handleiding AOG RayCorp.pdf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Handleiding.pdf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

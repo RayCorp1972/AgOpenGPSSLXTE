@@ -191,6 +191,12 @@
     <Compile Include="CustomControl1.Designer.cs">
       <DependentUpon>CustomControl1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form_AdminPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AdminPass.Designer.cs">
+      <DependentUpon>Form_AdminPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -636,6 +642,9 @@
       <DependentUpon>FormGPS.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\vec3.cs" />
+    <EmbeddedResource Include="Forms\Form_AdminPass.resx">
+      <DependentUpon>Form_AdminPass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -877,7 +886,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Handleiding AOG RayCorp.pdf" />
     <None Include="Manual.de.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -962,7 +970,9 @@
     <Content Include="Nav.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\Handleiding AOG RayCorp.pdf" />
+    <None Include="Resources\Handleiding.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\logo.png" />
     <None Include="Resources\logo1.png" />
     <None Include="Resources\logo2.png" />
