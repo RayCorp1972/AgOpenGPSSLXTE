@@ -137,6 +137,7 @@ namespace AgIO
                     {
                         lblWatch.Text = "Zenden";
                         isNTRIP_Sending = false;
+                        
                     }
                 }
             }

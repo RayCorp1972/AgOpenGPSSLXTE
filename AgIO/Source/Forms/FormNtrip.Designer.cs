@@ -79,18 +79,19 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tboxCurrentLon = new System.Windows.Forms.TextBox();
             this.btnSetManualPosition = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.txtServerPort = new System.Windows.Forms.TextBox();
+            this.TtBtn = new System.Windows.Forms.Button();
+            this.txtBoxId = new System.Windows.Forms.TextBox();
+            this.txtBoxServerIP = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.IPlbl = new System.Windows.Forms.Label();
             this.cboxIsNTRIPOn = new System.Windows.Forms.CheckBox();
             this.btnSerialOK = new System.Windows.Forms.Button();
             this.btnSerialCancel = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.IPlbl = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.txtBoxServerIP = new System.Windows.Forms.TextBox();
-            this.txtBoxId = new System.Windows.Forms.TextBox();
-            this.TtBtn = new System.Windows.Forms.Button();
-            this.txtServerPort = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCasterPort)).BeginInit();
@@ -125,6 +126,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Azure;
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.label18);
             this.tabPage1.Controls.Add(this.label24);
             this.tabPage1.Controls.Add(this.label23);
@@ -743,6 +745,80 @@
             this.btnSetManualPosition.UseVisualStyleBackColor = true;
             this.btnSetManualPosition.Click += new System.EventHandler(this.btnSetManualPosition_Click);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.txtServerPort);
+            this.tabPage3.Controls.Add(this.TtBtn);
+            this.tabPage3.Controls.Add(this.txtBoxId);
+            this.tabPage3.Controls.Add(this.txtBoxServerIP);
+            this.tabPage3.Controls.Add(this.label26);
+            this.tabPage3.Controls.Add(this.label25);
+            this.tabPage3.Controls.Add(this.IPlbl);
+            this.tabPage3.Location = new System.Drawing.Point(4, 44);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(733, 515);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Track&Trace";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // txtServerPort
+            // 
+            this.txtServerPort.Location = new System.Drawing.Point(35, 182);
+            this.txtServerPort.Name = "txtServerPort";
+            this.txtServerPort.Size = new System.Drawing.Size(187, 40);
+            this.txtServerPort.TabIndex = 7;
+            // 
+            // TtBtn
+            // 
+            this.TtBtn.Location = new System.Drawing.Point(35, 262);
+            this.TtBtn.Name = "TtBtn";
+            this.TtBtn.Size = new System.Drawing.Size(187, 39);
+            this.TtBtn.TabIndex = 6;
+            this.TtBtn.UseVisualStyleBackColor = true;
+            this.TtBtn.Click += new System.EventHandler(this.TtBtn_Click);
+            // 
+            // txtBoxId
+            // 
+            this.txtBoxId.Location = new System.Drawing.Point(395, 63);
+            this.txtBoxId.Name = "txtBoxId";
+            this.txtBoxId.Size = new System.Drawing.Size(332, 40);
+            this.txtBoxId.TabIndex = 5;
+            // 
+            // txtBoxServerIP
+            // 
+            this.txtBoxServerIP.Location = new System.Drawing.Point(35, 63);
+            this.txtBoxServerIP.Name = "txtBoxServerIP";
+            this.txtBoxServerIP.Size = new System.Drawing.Size(345, 40);
+            this.txtBoxServerIP.TabIndex = 3;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(398, 18);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(40, 33);
+            this.label26.TabIndex = 2;
+            this.label26.Text = "Id";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(29, 131);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(79, 33);
+            this.label25.TabIndex = 1;
+            this.label25.Text = "Poort";
+            // 
+            // IPlbl
+            // 
+            this.IPlbl.AutoSize = true;
+            this.IPlbl.Location = new System.Drawing.Point(29, 18);
+            this.IPlbl.Name = "IPlbl";
+            this.IPlbl.Size = new System.Drawing.Size(113, 33);
+            this.IPlbl.TabIndex = 0;
+            this.IPlbl.Text = "Ip adres";
+            // 
             // cboxIsNTRIPOn
             // 
             this.cboxIsNTRIPOn.Appearance = System.Windows.Forms.Appearance.Button;
@@ -809,79 +885,16 @@
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
-            // tabPage3
+            // button1
             // 
-            this.tabPage3.Controls.Add(this.txtServerPort);
-            this.tabPage3.Controls.Add(this.TtBtn);
-            this.tabPage3.Controls.Add(this.txtBoxId);
-            this.tabPage3.Controls.Add(this.txtBoxServerIP);
-            this.tabPage3.Controls.Add(this.label26);
-            this.tabPage3.Controls.Add(this.label25);
-            this.tabPage3.Controls.Add(this.IPlbl);
-            this.tabPage3.Location = new System.Drawing.Point(4, 44);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(733, 515);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Track&Trace";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // IPlbl
-            // 
-            this.IPlbl.AutoSize = true;
-            this.IPlbl.Location = new System.Drawing.Point(29, 18);
-            this.IPlbl.Name = "IPlbl";
-            this.IPlbl.Size = new System.Drawing.Size(113, 33);
-            this.IPlbl.TabIndex = 0;
-            this.IPlbl.Text = "Ip adres";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(29, 131);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(79, 33);
-            this.label25.TabIndex = 1;
-            this.label25.Text = "Poort";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(398, 18);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(40, 33);
-            this.label26.TabIndex = 2;
-            this.label26.Text = "Id";
-            // 
-            // txtBoxServerIP
-            // 
-            this.txtBoxServerIP.Location = new System.Drawing.Point(35, 63);
-            this.txtBoxServerIP.Name = "txtBoxServerIP";
-            this.txtBoxServerIP.Size = new System.Drawing.Size(345, 40);
-            this.txtBoxServerIP.TabIndex = 3;
-            // 
-            // txtBoxId
-            // 
-            this.txtBoxId.Location = new System.Drawing.Point(395, 63);
-            this.txtBoxId.Name = "txtBoxId";
-            this.txtBoxId.Size = new System.Drawing.Size(332, 40);
-            this.txtBoxId.TabIndex = 5;
-            // 
-            // TtBtn
-            // 
-            this.TtBtn.Location = new System.Drawing.Point(35, 262);
-            this.TtBtn.Name = "TtBtn";
-            this.TtBtn.Size = new System.Drawing.Size(187, 39);
-            this.TtBtn.TabIndex = 6;
-            this.TtBtn.UseVisualStyleBackColor = true;
-            this.TtBtn.Click += new System.EventHandler(this.TtBtn_Click);
-            // 
-            // txtServerPort
-            // 
-            this.txtServerPort.Location = new System.Drawing.Point(35, 182);
-            this.txtServerPort.Name = "txtServerPort";
-            this.txtServerPort.Size = new System.Drawing.Size(187, 40);
-            this.txtServerPort.TabIndex = 7;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(634, 472);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 37);
+            this.button1.TabIndex = 154;
+            this.button1.Text = "Admin";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormNtrip
             // 
@@ -982,5 +995,6 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label IPlbl;
         private System.Windows.Forms.TextBox txtServerPort;
+        private System.Windows.Forms.Button button1;
     }
 }

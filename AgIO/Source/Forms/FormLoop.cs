@@ -88,12 +88,12 @@ namespace AgIO
         private void FormLoop_Load(object sender, EventArgs e)
         {
 
-            
+
 
             //51.65036073941799, 4.613702307749019
 
 
-            TrackerAan = Settings.Default.TrackEnabled;
+            TrackerAan = true;
 
             if (Settings.Default.setF_workingDirectory == "Default")
                 baseDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AgOpenGPS\\";
@@ -699,16 +699,9 @@ namespace AgIO
                 ShowAgIO();
             }
 
-            if (currentHello)
-            {
-                Hide();
-            }
-            else
-            {
-                return;
-            }
-
             
+
+
         }
 
 
@@ -733,6 +726,7 @@ namespace AgIO
                 string Id = Properties.Settings.Default.TrackId;
                 string IP = Properties.Settings.Default.TrackIP;
                 string Port = Properties.Settings.Default.TrackPort;
+                
                 string date = DateTime.Now.ToString("yyyy/MM/dd");
                 string Time = DateTime.Now.ToString("HH:mm:ss");
                 string lat = lblCurrentLat.Text.Replace(",", ".");

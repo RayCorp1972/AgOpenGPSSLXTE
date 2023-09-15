@@ -14,7 +14,7 @@ namespace AgIO
     {
         //class variables
         private readonly FormLoop mf;
-        private bool ntripStatusChanged= false;
+        private bool ntripStatusChanged = false;
         public bool button1WasClicked;
         public FormNtrip(Form callingForm)
         {
@@ -56,6 +56,8 @@ namespace AgIO
         {
             //Track and Trace
             button1WasClicked = Properties.Settings.Default.button1WasClicked;
+            tabPage3.Hide();
+
 
             if (button1WasClicked == true)
             {
@@ -74,8 +76,8 @@ namespace AgIO
 
 
             cboxIsNTRIPOn.Checked = Properties.Settings.Default.setNTRIP_isOn;
-       
-            if (!cboxIsNTRIPOn.Checked) tabControl1.Enabled = false;    
+
+            if (!cboxIsNTRIPOn.Checked) tabControl1.Enabled = false;
             string hostName = Dns.GetHostName(); // Retrieve the Name of HOST
             tboxHostName.Text = hostName;
 
@@ -479,12 +481,21 @@ namespace AgIO
 
         private void TtBtn_Click(object sender, EventArgs e)
         {
-            
-                Properties.Settings.Default.button1WasClicked = true;
-                TtBtn.Text = "On";
-                TtBtn.BackColor = System.Drawing.Color.LightGreen;
-                Properties.Settings.Default.TrackEnabled = true;
-            
+
+            Properties.Settings.Default.button1WasClicked = true;
+            TtBtn.Text = "On";
+            TtBtn.BackColor = System.Drawing.Color.LightGreen;
+            Properties.Settings.Default.TrackEnabled = true;
+
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+        //    var form = new formA(this)
+        //    {
+        //        form.ShowDialog(this);
+        }
+
     }
+    
 }
