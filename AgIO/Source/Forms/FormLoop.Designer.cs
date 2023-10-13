@@ -55,6 +55,7 @@ namespace AgIO
             this.saveToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.serialPassThroughToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblSteerAngle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblNTRIP_IP = new System.Windows.Forms.Label();
@@ -101,7 +102,8 @@ namespace AgIO
             this.btnRelayTest = new System.Windows.Forms.Button();
             this.btnUDP = new System.Windows.Forms.Button();
             this.btnGPSData = new System.Windows.Forms.Button();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.passTxtBox = new System.Windows.Forms.TextBox();
+            this.admBtn = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -386,6 +388,12 @@ namespace AgIO
             this.serialPassThroughToolStripMenuItem.Size = new System.Drawing.Size(283, 70);
             this.serialPassThroughToolStripMenuItem.Text = "Serial NTRIP";
             this.serialPassThroughToolStripMenuItem.Click += new System.EventHandler(this.serialPassThroughToolStripMenuItem_Click);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 65);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // lblSteerAngle
             // 
@@ -935,7 +943,7 @@ namespace AgIO
             this.btnWindowsShutDown.ForeColor = System.Drawing.Color.White;
             this.btnWindowsShutDown.Image = global::AgIO.Properties.Resources.WindowsShutDown;
             this.btnWindowsShutDown.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnWindowsShutDown.Location = new System.Drawing.Point(665, 415);
+            this.btnWindowsShutDown.Location = new System.Drawing.Point(646, 410);
             this.btnWindowsShutDown.Margin = new System.Windows.Forms.Padding(4);
             this.btnWindowsShutDown.Name = "btnWindowsShutDown";
             this.btnWindowsShutDown.Size = new System.Drawing.Size(63, 58);
@@ -1096,11 +1104,34 @@ namespace AgIO
             this.btnGPSData.UseVisualStyleBackColor = false;
             this.btnGPSData.Click += new System.EventHandler(this.btnGPSData_Click);
             // 
-            // toolStripStatusLabel1
+            // passTxtBox
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 65);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.passTxtBox.Location = new System.Drawing.Point(13, 170);
+            this.passTxtBox.Name = "passTxtBox";
+            this.passTxtBox.PasswordChar = '*';
+            this.passTxtBox.Size = new System.Drawing.Size(112, 26);
+            this.passTxtBox.TabIndex = 524;
+            this.passTxtBox.TextChanged += new System.EventHandler(this.passTxtBox_TextChanged);
+            // 
+            // admBtn
+            // 
+            this.admBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.admBtn.BackColor = System.Drawing.Color.Transparent;
+            this.admBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.HotTrack;
+            this.admBtn.FlatAppearance.BorderSize = 0;
+            this.admBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.admBtn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admBtn.ForeColor = System.Drawing.Color.Black;
+            this.admBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.admBtn.Location = new System.Drawing.Point(650, 309);
+            this.admBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.admBtn.Name = "admBtn";
+            this.admBtn.Size = new System.Drawing.Size(63, 58);
+            this.admBtn.TabIndex = 523;
+            this.admBtn.Text = "Admin";
+            this.admBtn.UseVisualStyleBackColor = false;
+            this.admBtn.Visible = false;
+            this.admBtn.Click += new System.EventHandler(this.admBtn_Click);
             // 
             // FormLoop
             // 
@@ -1109,6 +1140,8 @@ namespace AgIO
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(734, 475);
+            this.Controls.Add(this.passTxtBox);
+            this.Controls.Add(this.admBtn);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblSkipCounter);
@@ -1255,6 +1288,8 @@ namespace AgIO
         private System.Windows.Forms.ToolStripMenuItem toolStripSerialMonitor;
         private System.Windows.Forms.ToolStripMenuItem toolStripUDPMonitor;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.TextBox passTxtBox;
+        private System.Windows.Forms.Button admBtn;
     }
 }
 

@@ -107,10 +107,10 @@
             this.btnOpenExistingLv.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenExistingLv.Image = global::AgOpenGPS.Properties.Resources.FileOpen;
             this.btnOpenExistingLv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpenExistingLv.Location = new System.Drawing.Point(697, 507);
+            this.btnOpenExistingLv.Location = new System.Drawing.Point(738, 507);
             this.btnOpenExistingLv.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnOpenExistingLv.Name = "btnOpenExistingLv";
-            this.btnOpenExistingLv.Size = new System.Drawing.Size(261, 63);
+            this.btnOpenExistingLv.Size = new System.Drawing.Size(220, 63);
             this.btnOpenExistingLv.TabIndex = 92;
             this.btnOpenExistingLv.Text = global::AgOpenGPS.gStr.gsUseSelected;
             this.btnOpenExistingLv.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -123,7 +123,7 @@
             this.btnDeleteAB.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.btnDeleteAB.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnDeleteAB.Image = global::AgOpenGPS.Properties.Resources.Cancel64;
-            this.btnDeleteAB.Location = new System.Drawing.Point(502, 507);
+            this.btnDeleteAB.Location = new System.Drawing.Point(632, 507);
             this.btnDeleteAB.Name = "btnDeleteAB";
             this.btnDeleteAB.Size = new System.Drawing.Size(71, 63);
             this.btnDeleteAB.TabIndex = 91;
@@ -148,7 +148,7 @@
             this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(43, 488);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 16);
+            this.label1.Size = new System.Drawing.Size(75, 16);
             this.label1.TabIndex = 95;
             this.label1.Text = "Delete Field";
             // 
@@ -156,9 +156,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(515, 488);
+            this.label2.Location = new System.Drawing.Point(643, 488);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 16);
+            this.label2.Size = new System.Drawing.Size(46, 16);
             this.label2.TabIndex = 96;
             this.label2.Text = "Cancel";
             // 

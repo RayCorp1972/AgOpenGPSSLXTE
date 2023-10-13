@@ -88,12 +88,13 @@ namespace AgIO
         private void FormLoop_Load(object sender, EventArgs e)
         {
 
+            passTxtBox.Visible = false;
 
 
             //51.65036073941799, 4.613702307749019
 
-
             TrackerAan = true;
+            TrackandTrace();
 
             if (Settings.Default.setF_workingDirectory == "Default")
                 baseDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AgOpenGPS\\";
@@ -726,13 +727,13 @@ namespace AgIO
                 string Id = Properties.Settings.Default.TrackId;
                 string IP = Properties.Settings.Default.TrackIP;
                 string Port = Properties.Settings.Default.TrackPort;
-                
+
                 string date = DateTime.Now.ToString("yyyy/MM/dd");
                 string Time = DateTime.Now.ToString("HH:mm:ss");
                 string lat = lblCurrentLat.Text.Replace(",", ".");
                 string lon = lblCurentLon.Text.Replace(",", ".");
                 //var request = (HttpWebRequest)WebRequest.Create(IP + ":" + Port + "/?id=" + Id + "&timestamp=" + date + "T" + Time + "Z" + "&lat=" + lat + "&lon=" + lon);
-                var request = (HttpWebRequest)WebRequest.Create(IP + ":" + Port + "/?id=" + Id  + "&lat=" + lat + "&lon=" + lon + "&timestamp=" + date + "T" + Time + "Z");
+                var request = (HttpWebRequest)WebRequest.Create(IP + ":" + Port + "/?id=" + Id + "&lat=" + lat + "&lon=" + lon + "&timestamp=" + date + "T" + Time + "Z");
                 ////http://gps.raycorp.nl:5055/?id=AOG1&timestamp=" + ZendTijd + "&lat=" + Lat + "&lon=" + Long;
                 var postData = "";
                 var data = Encoding.ASCII.GetBytes(postData);
@@ -918,6 +919,24 @@ namespace AgIO
                     _ = IPA.ToString();
                     lblIP.Text += IPA.ToString() + "\r\n";
                 }
+            }
+        }
+
+        private void admBtn_Click(object sender, EventArgs e)
+        {
+            passTxtBox.Visible = true;
+
+        }
+
+        private void passTxtBox_TextChanged(object sender, EventArgs e)
+        {
+
+            if (passTxtBox.Text.Contains("2806"))
+            {
+                {
+                   
+                }
+
             }
         }
 

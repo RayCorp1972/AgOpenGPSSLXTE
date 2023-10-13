@@ -32,6 +32,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.admButton = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -91,7 +92,6 @@
             this.btnSerialOK = new System.Windows.Forms.Button();
             this.btnSerialCancel = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCasterPort)).BeginInit();
@@ -126,7 +126,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Azure;
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.admButton);
             this.tabPage1.Controls.Add(this.label18);
             this.tabPage1.Controls.Add(this.label24);
             this.tabPage1.Controls.Add(this.label23);
@@ -160,6 +160,17 @@
             this.tabPage1.Size = new System.Drawing.Size(733, 515);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ntrip";
+            // 
+            // admButton
+            // 
+            this.admButton.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admButton.Location = new System.Drawing.Point(634, 472);
+            this.admButton.Name = "admButton";
+            this.admButton.Size = new System.Drawing.Size(87, 37);
+            this.admButton.TabIndex = 154;
+            this.admButton.Text = "Admin";
+            this.admButton.UseVisualStyleBackColor = true;
+            this.admButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // label18
             // 
@@ -296,6 +307,7 @@
             this.tboxUserName.Size = new System.Drawing.Size(252, 33);
             this.tboxUserName.TabIndex = 100;
             this.tboxUserName.Click += new System.EventHandler(this.tboxUserName_Click);
+            this.tboxUserName.TextChanged += new System.EventHandler(this.tboxUserName_TextChanged);
             // 
             // tboxMount
             // 
@@ -885,17 +897,6 @@
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(634, 472);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 37);
-            this.button1.TabIndex = 154;
-            this.button1.Text = "Admin";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FormNtrip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -995,6 +996,6 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label IPlbl;
         private System.Windows.Forms.TextBox txtServerPort;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button admButton;
     }
 }

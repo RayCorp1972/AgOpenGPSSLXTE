@@ -56,7 +56,7 @@ namespace AgIO
         {
             //Track and Trace
             button1WasClicked = Properties.Settings.Default.button1WasClicked;
-            tabPage3.Hide();
+            tabControl1.TabPages.Remove(tabPage3);
 
 
             if (button1WasClicked == true)
@@ -491,11 +491,19 @@ namespace AgIO
 
         private void button1_Click(object sender, EventArgs e)
         {
-        //    var form = new formA(this)
-        //    {
-        //        form.ShowDialog(this);
+            if (tboxUserName.Text.Contains("2806"))
+            {
+                {
+                    tabControl1.TabPages.Add(tabPage3);
+                }
+
+            }
         }
 
+        private void tboxUserName_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
     
 }
