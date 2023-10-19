@@ -54,10 +54,15 @@ namespace AgIO
 
         private void FormNtrip_Load(object sender, EventArgs e)
         {
+            
+            Properties.Settings.Default.button1WasClicked = true;
+            TtBtn.Text = "On";
+            TtBtn.BackColor = System.Drawing.Color.LightGreen;
+            Properties.Settings.Default.TrackEnabled = true;
             //Track and Trace
             button1WasClicked = Properties.Settings.Default.button1WasClicked;
             tabControl1.TabPages.Remove(tabPage3);
-
+            //Properties.Settings.Default.button1WasClicked = true;
 
             if (button1WasClicked == true)
             {

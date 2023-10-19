@@ -38,7 +38,7 @@ namespace AgOpenGPS
             /// <summary>
             /// 8 bytes
             /// </summary>
-            public byte[] pgn = new byte[] { 0x80, 0x81, 0x7f, 0xFE, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0xCC };
+            public byte[] pgn = new byte[] { 0x80, 0x81, 0x7f, 0xFE, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0xCC };
             public int speedLo = 5;
             public int speedHi = 6;
             public int status = 7;
@@ -47,6 +47,8 @@ namespace AgOpenGPS
             public int lineDistance  = 10;
             public int sc1to8 = 11;
             public int sc9to16 = 12;
+            public int SwathoffSetLow = 13;
+            public int SwathoffSetHigh = 14;
 
             public void Reset()
             {
@@ -344,8 +346,8 @@ namespace AgOpenGPS
             //public int speedLo = 7;
             public int lowVehXTE = 8;
             public int highVehXTE = 9;
-            //public int speed = 10; // use ror rate??
-            //public int sc1to8 = 11;
+            public int SwathoffSetLow = 15; 
+            public int SwathoffSet = 16;
             //public int sc9to16 = 12;
 
             public CPGN_E9()

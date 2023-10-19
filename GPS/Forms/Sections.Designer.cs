@@ -683,7 +683,7 @@ namespace AgOpenGPS
                 for (int j = 8; j < 16; j++)
                 {
                     if (section[j].isSectionOn)
-                        number |= 1 << (j-8);
+                        number |= 1 << (j - 8);
                 }
                 p_254.pgn[p_254.sc9to16] = unchecked((byte)number);
 

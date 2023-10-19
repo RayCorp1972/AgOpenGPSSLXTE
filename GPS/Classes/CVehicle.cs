@@ -2,6 +2,7 @@
 
 using OpenTK.Graphics.OpenGL;
 using System;
+using System.Text;
 
 namespace AgOpenGPS
 {
@@ -19,6 +20,8 @@ namespace AgOpenGPS
         public double minTurningRadius;
         public double antennaOffset, panicStopSpeed;
         public int vehicleType;
+        public int AblineNumber;
+        private byte[] byteData;
 
         //min vehicle speed allowed before turning shit off
         public double slowSpeedCutoff = 0;
@@ -507,9 +510,10 @@ namespace AgOpenGPS
                 if (mf.ABLine.howManyPathsAway == 0)
                     mf.font.DrawTextVehicle(2, wheelbase + 1, "0", 1);
                 else if (mf.ABLine.howManyPathsAway > 0)
-                    mf.font.DrawTextVehicle(2, wheelbase + 1, mf.ABLine.howManyPathsAway.ToString() + "R", 1);
+                    mf.font.DrawTextVehicle(2, wheelbase + 1, mf.ABLine.howManyPathsAway.ToString(), 1);
                 else
-                    mf.font.DrawTextVehicle(2, wheelbase + 1, mf.ABLine.howManyPathsAway.ToString() + "L", 1);
+                    mf.font.DrawTextVehicle(2, wheelbase + 1, mf.ABLine.howManyPathsAway.ToString(), 1);
+
             }
             GL.LineWidth(1);
 

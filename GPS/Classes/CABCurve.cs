@@ -17,7 +17,7 @@ namespace AgOpenGPS
 
         public bool isHeadingSameWay = true;
 
-        public double howManyPathsAway;
+        public int howManyPathsAway;
         public vec2 refPoint1 = new vec2(1, 1), refPoint2 = new vec2(2, 2);
 
         public double refHeading, moveDistance;

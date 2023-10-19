@@ -343,8 +343,8 @@ namespace AgIO
             Settings.Default.setPort_wasMachineModuleConnected = wasMachineModuleConnectedLastRun;
             Settings.Default.setPort_wasRtcmConnected = wasRtcmConnectedLastRun;
             //Track&trace
-            Settings.Default.TrackEnabled = false;
-            Settings.Default.button1WasClicked = false;
+            Settings.Default.TrackEnabled = true;
+            Settings.Default.button1WasClicked = true;
             Settings.Default.Save();
 
             if (loopBackSocket != null)

@@ -9,7 +9,7 @@ namespace AgOpenGPS
         public double abFixHeadingDelta;
         public double abHeading, abLength;
         public double angVel;
-
+        public short Swathoffset;
         public bool isABValid, isLateralTriggered;
 
         //the current AB guidance line
@@ -109,6 +109,8 @@ namespace AgOpenGPS
             double RefDist = (distanceFromRefLine + (isHeadingSameWay ? mf.tool.offset : -mf.tool.offset)) / widthMinusOverlap;
             if (RefDist < 0) howManyPathsAway = (int)(RefDist - 0.5);
             else howManyPathsAway = (int)(RefDist + 0.5);
+            Swathoffset = (short)howManyPathsAway;
+
 
             shadowOffset = isHeadingSameWay ? mf.tool.offset : -mf.tool.offset;
 
