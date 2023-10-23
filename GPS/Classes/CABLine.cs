@@ -6,10 +6,11 @@ namespace AgOpenGPS
 {
     public class CABLine
     {
+        public short AbLineNumber;
         public double abFixHeadingDelta;
         public double abHeading, abLength;
         public double angVel;
-        public short Swathoffset;
+
         public bool isABValid, isLateralTriggered;
 
         //the current AB guidance line
@@ -107,10 +108,19 @@ namespace AgOpenGPS
 
             //Which ABLine is the vehicle on, negative is left and positive is right side
             double RefDist = (distanceFromRefLine + (isHeadingSameWay ? mf.tool.offset : -mf.tool.offset)) / widthMinusOverlap;
-            if (RefDist < 0) howManyPathsAway = (int)(RefDist - 0.5);
-            else howManyPathsAway = (int)(RefDist + 0.5);
-            Swathoffset = (short)howManyPathsAway;
+            if (RefDist < 0) {
+                howManyPathsAway = (int)(RefDist - 0.5);
+                AbLineNumber = (short)(RefDist - 0.5);
 
+            }
+            else
+            {
+                howManyPathsAway = (int)(RefDist + 0.5);
+                AbLineNumber = (short)(RefDist + 0.5);
+            }
+          
+
+            
 
             shadowOffset = isHeadingSameWay ? mf.tool.offset : -mf.tool.offset;
 
