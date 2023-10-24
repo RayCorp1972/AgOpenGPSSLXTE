@@ -47,7 +47,7 @@ namespace AgOpenGPS
             public int lineDistance  = 10;
             public int sc1to8 = 11;
             public int sc9to16 = 12;
-            public long SwathoffSetLow = 13;
+            public short SwathoffSetLow = 13;
             //public int SwathoffSetHigh = 14;
 
             public void Reset()

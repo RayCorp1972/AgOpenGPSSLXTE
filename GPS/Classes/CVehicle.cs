@@ -514,7 +514,8 @@ namespace AgOpenGPS
                 else
                     mf.font.DrawTextVehicle(2, wheelbase + 1, mf.ABLine.howManyPathsAway.ToString(), 1);
 
-              Swathoffset = short.Parse(this.mf.ABLine.howManyPathsAway.ToString());
+                string v = (mf.ABLine.howManyPathsAway.ToString());
+                Swathoffset = (short)Convert.ToInt32(v);
 
 
             }

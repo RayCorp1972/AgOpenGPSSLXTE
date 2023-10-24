@@ -764,9 +764,9 @@ namespace AgOpenGPS
                     ABLine.GetCurrentABLine(pivotAxlePos, steerAxlePos);
                     p_233.pgn[p_233.highVehXTE] = unchecked((byte)(guidanceLineDistanceOff >> 8));
                     p_233.pgn[p_233.lowVehXTE] = unchecked((byte)(guidanceLineDistanceOff));
-                    p_254.pgn[p_254.SwathoffSetLow] = unchecked((byte)((short)vehicle.Swathoffset));
-                   
+                    p_254.pgn[p_254.SwathoffSetLow] = unchecked((byte)((short)ABLine.AbLineNumber));
 
+                    Console.WriteLine((short)ABLine.AbLineNumber);
 
                 }
             }
