@@ -6,7 +6,7 @@ namespace AgOpenGPS
 {
     public class CABLine
     {
-        public short AbLineNumber;
+        public double  AbLineNumber;
         public double abFixHeadingDelta;
         public double abHeading, abLength;
         public double angVel;
@@ -110,13 +110,13 @@ namespace AgOpenGPS
             double RefDist = (distanceFromRefLine + (isHeadingSameWay ? mf.tool.offset : -mf.tool.offset)) / widthMinusOverlap;
             if (RefDist < 0) {
                 howManyPathsAway = (int)(RefDist - 0.5);
-                AbLineNumber = (short)(RefDist - 0.5);
+                AbLineNumber = (int)(RefDist - 0.5);
 
             }
             else
             {
                 howManyPathsAway = (int)(RefDist + 0.5);
-                AbLineNumber = (short)(RefDist + 0.5);
+                AbLineNumber = (int)(RefDist + 0.5); 
             }
           
 

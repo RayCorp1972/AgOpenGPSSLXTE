@@ -13,7 +13,7 @@ namespace AgOpenGPS
         
         public bool isSteerAxleAhead;
         public bool isPivotBehindAntenna;
-        public int Swathoffset;
+        public short Swathoffset;
         public double antennaHeight;
         public double antennaPivot;
         public double wheelbase;
@@ -514,7 +514,7 @@ namespace AgOpenGPS
                 else
                     mf.font.DrawTextVehicle(2, wheelbase + 1, mf.ABLine.howManyPathsAway.ToString(), 1);
 
-              
+              Swathoffset = short.Parse(this.mf.ABLine.howManyPathsAway.ToString());
 
 
             }
