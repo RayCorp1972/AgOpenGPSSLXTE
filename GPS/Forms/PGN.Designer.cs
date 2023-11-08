@@ -48,7 +48,7 @@ namespace AgOpenGPS
             public int sc1to8 = 11;
             public int sc9to16 = 12;
             public short SwathoffSetLow = 13;
-            //public int SwathoffSetHigh = 14;
+            public int ROXTE = 14;
 
             public void Reset()
             {
