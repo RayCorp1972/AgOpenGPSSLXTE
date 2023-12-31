@@ -27,9 +27,9 @@ namespace AgOpenGPS
         private static extern bool SetForegroundWindow(IntPtr handle);
 
 
-     
-        
-       
+        public CHeadLine hdl;
+
+
         [System.Runtime.InteropServices.DllImport("User32.dll")]
         private static extern bool ShowWindow(IntPtr hWind, int nCmdShow);
 
@@ -77,7 +77,7 @@ namespace AgOpenGPS
 
         //create instance of a stopwatch for timing of frames and NMEA hz determination
         private readonly Stopwatch swFrame = new Stopwatch();
-
+        //internal readonly object hdl;
         public double secondsSinceStart;
 
         //private readonly Stopwatch swDraw = new Stopwatch();
@@ -126,7 +126,7 @@ namespace AgOpenGPS
         public string filePickerFileAndDirectory;
 
         //the position of the GPS Data window within the FormGPS window
-        public int GPSDataWindowLeft = 76, GPSDataWindowTopOffset = 160;
+        public int GPSDataWindowLeft = 10, GPSDataWindowTopOffset = 190;
 
         //the autoManual drive button. Assume in Auto
         public bool isInAutoDrive = true;
@@ -275,6 +275,44 @@ namespace AgOpenGPS
 
             correctionToolStrip.Visible = true;
             textBox1.Visible = false;
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            if (isJobStarted) { 
+                panelRight.Visible = false;
+            statusStripLeft.Visible = false;
+            lblFieldStatus_Click(sender, e);
+            oglMain.Dock = DockStyle.Fill;
+            lblFix.Visible = false;
+            btnMaximizeMainForm.Visible = false;
+            btnMaximizeMainForm.Visible = false;
+            btnShutdown.Visible = false;
+            lblCurrentField.Visible = false;
+            menuStrip1.Visible = false;
+            lblFieldStatus.Visible = false;
+            //tableLayoutPanel1.Visible = false;
+            lblCurveLineName.Visible = false;
+            btnStartAgIO.Visible = false;
+            btnAutoSteerConfig.Visible = false;
+            label3.Visible = false;
+            lblAV.Visible = false;
+            label1.Visible = false;
+            panelNavigation.Visible = false;
+            label2.Visible = false;
+        }
+            else
+            {
+                MessageBox.Show("Selecteer eerst perceel!");
+            }
+
+
         }
 
         /// <summary>
@@ -623,7 +661,46 @@ namespace AgOpenGPS
 
             hotkeys = Properties.Settings.Default.setKey_hotkeys.ToCharArray();
         }
+        public void FileSaveEverythingBeforeClosingField()
+        {
+            //turn off contour line if on
+            if (ct.isContourOn) ct.StopContourLine();
 
+            //turn off all the sections
+            for (int j = 0; j < tool.numOfSections; j++)
+            {
+                section[j].sectionOnOffCycle = false;
+                section[j].sectionOffRequest = false;
+            }
+
+            //turn off patching
+            for (int j = 0; j < triStrip.Count; j++)
+            {
+                if (triStrip[j].isDrawing) triStrip[j].TurnMappingOff();
+            }
+
+            //FileSaveHeadland();
+            FileSaveBoundary();
+            FileSaveSections();
+            FileSaveContour();
+
+            ExportFieldAs_KML();
+            ExportFieldAs_ISOXMLv3();
+            ExportFieldAs_ISOXMLv4();
+
+            Settings.Default.setF_CurrentDir = currentFieldDirectory;
+            Settings.Default.Save();
+
+            panelRight.Enabled = false;
+            FieldMenuButtonEnableDisable(false);
+            displayFieldName = gStr.gsNone;
+
+            JobClose();
+
+            Text = "AgOpenGPS";
+        }
+
+        
         private void FormGPS_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (isJobStarted)
@@ -1199,33 +1276,7 @@ namespace AgOpenGPS
         }
 
         //All the files that need to be saved when closing field or app
-        private void FileSaveEverythingBeforeClosingField()
-        {
-            //turn off contour line if on
-            if (ct.isContourOn) ct.StopContourLine();
-
-            //turn off all the sections
-            for (int j = 0; j < tool.numOfSections; j++)
-            {
-                section[j].sectionOnOffCycle = false;
-                section[j].sectionOffRequest = false;
-            }
-
-            //turn off patching
-            for (int j = 0; j < triStrip.Count; j++)
-            {
-                if (triStrip[j].isDrawing) triStrip[j].TurnMappingOff();
-            }
-
-            //FileSaveHeadland();
-            FileSaveBoundary();
-            FileSaveSections();
-            FileSaveContour();
-            FileSaveFieldKML();
-
-            JobClose();
-            Text = "AgOpenGPS";
-        }
+      
 
         //an error log called by all try catches
         public void WriteErrorLog(string strErrorText)
@@ -1254,6 +1305,9 @@ namespace AgOpenGPS
         }
     
     }//class FormGPS
+
+
+
 
 }//namespace AgOpenGPS
 

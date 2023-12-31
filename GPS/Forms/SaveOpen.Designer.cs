@@ -1571,6 +1571,753 @@ namespace AgOpenGPS
             }
         }
 
+        public void ExportFieldAs_KML() // KML
+        {
+            //get the directory and make sure it exists, create if not
+            string dirField = fieldsDirectory + currentFieldDirectory + "\\";
+
+            string directoryName = Path.GetDirectoryName(dirField);
+            if ((directoryName.Length > 0) && (!Directory.Exists(directoryName)))
+            { Directory.CreateDirectory(directoryName); }
+
+            string myFileName;
+            myFileName = "Field.kml";
+
+            XmlTextWriter kml = new XmlTextWriter(dirField + myFileName, Encoding.UTF8);
+
+            kml.Formatting = Formatting.Indented;
+            kml.Indentation = 3;
+
+            kml.WriteStartDocument();
+            kml.WriteStartElement("kml", "http://www.opengis.net/kml/2.2");
+            kml.WriteStartElement("Document");
+
+            //Description  ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+            kml.WriteStartElement("Folder");
+            kml.WriteElementString("name", "Field Stats");
+            kml.WriteElementString("description", fd.GetDescription());
+            kml.WriteEndElement(); // <Folder>
+            //End of Desc
+
+            //Boundary  ----------------------------------------------------------------------
+            kml.WriteStartElement("Folder");
+            kml.WriteElementString("name", "Boundaries");
+
+            for (int i = 0; i < bnd.bndList.Count; i++)
+            {
+                kml.WriteStartElement("Placemark");
+                if (i == 0) kml.WriteElementString("name", currentFieldDirectory);
+
+                //lineStyle
+                kml.WriteStartElement("Style");
+                kml.WriteStartElement("LineStyle");
+                if (i == 0) kml.WriteElementString("color", "ffdd00dd");
+                else kml.WriteElementString("color", "ff4d3ffd");
+                kml.WriteElementString("width", "4");
+                kml.WriteEndElement(); // <LineStyle>
+
+                kml.WriteStartElement("PolyStyle");
+                if (i == 0) kml.WriteElementString("color", "407f3f55");
+                else kml.WriteElementString("color", "703f38f1");
+                kml.WriteEndElement(); // <PloyStyle>
+                kml.WriteEndElement(); //Style
+
+                kml.WriteStartElement("Polygon");
+                kml.WriteElementString("tessellate", "1");
+                kml.WriteStartElement("outerBoundaryIs");
+                kml.WriteStartElement("LinearRing");
+
+                //coords
+                kml.WriteStartElement("coordinates");
+                string bndPts = "";
+                if (bnd.bndList[i].fenceLine.Count > 3)
+                    bndPts = GetBoundaryPointsLatLon(i);
+                kml.WriteRaw(bndPts);
+                kml.WriteEndElement(); // <coordinates>
+
+                kml.WriteEndElement(); // <Linear>
+                kml.WriteEndElement(); // <OuterBoundary>
+                kml.WriteEndElement(); // <Polygon>
+                kml.WriteEndElement(); // <Placemark>
+            }
+
+            kml.WriteEndElement(); // <Folder>  
+            //End of Boundary
+
+            //guidance lines AB
+            kml.WriteStartElement("Folder");
+            kml.WriteElementString("name", "AB_Lines");
+            kml.WriteElementString("visibility", "0");
+
+            string linePts = "";
+
+            for (int i = 0; i < ABLine.lineArr.Count; i++)
+            {
+                kml.WriteStartElement("Placemark");
+                kml.WriteElementString("visibility", "0");
+
+                kml.WriteElementString("name", ABLine.lineArr[i].Name);
+                kml.WriteStartElement("Style");
+
+                kml.WriteStartElement("LineStyle");
+                kml.WriteElementString("color", "ff0000ff");
+                kml.WriteElementString("width", "2");
+                kml.WriteEndElement(); // <LineStyle>
+                kml.WriteEndElement(); //Style
+
+                kml.WriteStartElement("LineString");
+                kml.WriteElementString("tessellate", "1");
+                kml.WriteStartElement("coordinates");
+
+                linePts = pn.GetLocalToWSG84_KML(ABLine.lineArr[i].origin.easting - (Math.Sin(ABLine.lineArr[i].heading) * ABLine.abLength),
+                    ABLine.lineArr[i].origin.northing - (Math.Cos(ABLine.lineArr[i].heading) * ABLine.abLength));
+                linePts += pn.GetLocalToWSG84_KML(ABLine.lineArr[i].origin.easting + (Math.Sin(ABLine.lineArr[i].heading) * ABLine.abLength),
+                    ABLine.lineArr[i].origin.northing + (Math.Cos(ABLine.lineArr[i].heading) * ABLine.abLength));
+                kml.WriteRaw(linePts);
+
+                kml.WriteEndElement(); // <coordinates>
+                kml.WriteEndElement(); // <LineString>
+
+                kml.WriteEndElement(); // <Placemark>
+
+            }
+            kml.WriteEndElement(); // <Folder>   
+
+            //guidance lines Curve
+            kml.WriteStartElement("Folder");
+            kml.WriteElementString("name", "Curve_Lines");
+            kml.WriteElementString("visibility", "0");
+
+            for (int i = 0; i < curve.curveArr.Count; i++)
+            {
+                linePts = "";
+                kml.WriteStartElement("Placemark");
+                kml.WriteElementString("visibility", "0");
+
+                kml.WriteElementString("name", curve.curveArr[i].Name);
+                kml.WriteStartElement("Style");
+
+                kml.WriteStartElement("LineStyle");
+                kml.WriteElementString("color", "ff6699ff");
+                kml.WriteElementString("width", "2");
+                kml.WriteEndElement(); // <LineStyle>
+                kml.WriteEndElement(); //Style
+
+                kml.WriteStartElement("LineString");
+                kml.WriteElementString("tessellate", "1");
+                kml.WriteStartElement("coordinates");
+
+                for (int j = 0; j < curve.curveArr[i].curvePts.Count; j++)
+                {
+                    linePts += pn.GetLocalToWSG84_KML(curve.curveArr[i].curvePts[j].easting, curve.curveArr[i].curvePts[j].northing);
+                }
+                kml.WriteRaw(linePts);
+
+                kml.WriteEndElement(); // <coordinates>
+                kml.WriteEndElement(); // <LineString>
+
+                kml.WriteEndElement(); // <Placemark>
+            }
+            kml.WriteEndElement(); // <Folder>   
+
+            //Recorded Path
+            kml.WriteStartElement("Folder");
+            kml.WriteElementString("name", "Recorded Path");
+            kml.WriteElementString("visibility", "1");
+
+            linePts = "";
+            kml.WriteStartElement("Placemark");
+            kml.WriteElementString("visibility", "1");
+
+            kml.WriteElementString("name", "Path " + 1);
+            kml.WriteStartElement("Style");
+
+            kml.WriteStartElement("LineStyle");
+            kml.WriteElementString("color", "ff44ffff");
+            kml.WriteElementString("width", "2");
+            kml.WriteEndElement(); // <LineStyle>
+            kml.WriteEndElement(); //Style
+
+            kml.WriteStartElement("LineString");
+            kml.WriteElementString("tessellate", "1");
+            kml.WriteStartElement("coordinates");
+
+            for (int j = 0; j < recPath.recList.Count; j++)
+            {
+                linePts += pn.GetLocalToWSG84_KML(recPath.recList[j].easting, recPath.recList[j].northing);
+            }
+            kml.WriteRaw(linePts);
+
+            kml.WriteEndElement(); // <coordinates>
+            kml.WriteEndElement(); // <LineString>
+
+            kml.WriteEndElement(); // <Placemark>
+            kml.WriteEndElement(); // <Folder>
+
+            //flags  *************************************************************************
+            kml.WriteStartElement("Folder");
+            kml.WriteElementString("name", "Flags");
+
+            for (int i = 0; i < flagPts.Count; i++)
+            {
+                kml.WriteStartElement("Placemark");
+                kml.WriteElementString("name", "Flag_" + i.ToString());
+
+                kml.WriteStartElement("Style");
+                kml.WriteStartElement("IconStyle");
+
+                if (flagPts[i].color == 0)  //red - xbgr
+                    kml.WriteElementString("color", "ff4400ff");
+                if (flagPts[i].color == 1)  //grn - xbgr
+                    kml.WriteElementString("color", "ff44ff00");
+                if (flagPts[i].color == 2)  //yel - xbgr
+                    kml.WriteElementString("color", "ff44ffff");
+
+                kml.WriteEndElement(); //IconStyle
+                kml.WriteEndElement(); //Style
+
+                kml.WriteElementString("name", ((i + 1).ToString() + " " + flagPts[i].notes));
+                kml.WriteStartElement("Point");
+                kml.WriteElementString("coordinates", flagPts[i].longitude.ToString(CultureInfo.InvariantCulture) +
+                    "," + flagPts[i].latitude.ToString(CultureInfo.InvariantCulture) + ",0");
+                kml.WriteEndElement(); //Point
+                kml.WriteEndElement(); // <Placemark>
+            }
+            kml.WriteEndElement(); // <Folder>   
+            //End of Flags
+
+            //Sections  ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+            kml.WriteStartElement("Folder");
+            kml.WriteElementString("name", "Sections");
+            //kml.WriteElementString("description", fd.GetDescription() );
+
+            string secPts = "";
+            int cntr = 0;
+
+            for (int j = 0; j < triStrip.Count; j++)
+            {
+                int patches = triStrip[j].patchList.Count;
+
+                if (patches > 0)
+                {
+                    //for every new chunk of patch
+                    foreach (var triList in triStrip[j].patchList)
+                    {
+                        if (triList.Count > 0)
+                        {
+                            kml.WriteStartElement("Placemark");
+                            kml.WriteElementString("name", "Sections_" + cntr.ToString());
+                            cntr++;
+
+                            string collor = "F0" + ((byte)(triList[0].heading)).ToString("X2") +
+                                ((byte)(triList[0].northing)).ToString("X2") + ((byte)(triList[0].easting)).ToString("X2");
+
+                            //lineStyle
+                            kml.WriteStartElement("Style");
+
+                            kml.WriteStartElement("LineStyle");
+                            kml.WriteElementString("color", collor);
+                            //kml.WriteElementString("width", "6");
+                            kml.WriteEndElement(); // <LineStyle>
+
+                            kml.WriteStartElement("PolyStyle");
+                            kml.WriteElementString("color", collor);
+                            kml.WriteEndElement(); // <PloyStyle>
+                            kml.WriteEndElement(); //Style
+
+                            kml.WriteStartElement("Polygon");
+                            kml.WriteElementString("tessellate", "1");
+                            kml.WriteStartElement("outerBoundaryIs");
+                            kml.WriteStartElement("LinearRing");
+
+                            //coords
+                            kml.WriteStartElement("coordinates");
+                            secPts = "";
+                            for (int i = 1; i < triList.Count; i += 2)
+                            {
+                                secPts += pn.GetLocalToWSG84_KML(triList[i].easting, triList[i].northing);
+                            }
+                            for (int i = triList.Count - 1; i > 1; i -= 2)
+                            {
+                                secPts += pn.GetLocalToWSG84_KML(triList[i].easting, triList[i].northing);
+                            }
+                            secPts += pn.GetLocalToWSG84_KML(triList[1].easting, triList[1].northing);
+
+                            kml.WriteRaw(secPts);
+                            kml.WriteEndElement(); // <coordinates>
+
+                            kml.WriteEndElement(); // <LinearRing>
+                            kml.WriteEndElement(); // <outerBoundaryIs>
+                            kml.WriteEndElement(); // <Polygon>
+
+                            kml.WriteEndElement(); // <Placemark>
+                        }
+                    }
+                }
+            }
+            kml.WriteEndElement(); // <Folder>
+            //End of sections
+
+            //end of document
+            kml.WriteEndElement(); // <Document>
+            kml.WriteEndElement(); // <kml>
+
+            //The end
+            kml.WriteEndDocument();
+
+            kml.Flush();
+
+            //Write the XML to file and close the kml
+            kml.Close();
+        }
+
+
+        public void ExportFieldAs_ISOXMLv3()
+        {
+            //if (bnd.bndList.Count < 1) return;//If no Bnd, Quit
+
+            //get the directory and make sure it exists, create if not
+            string dirField = fieldsDirectory + currentFieldDirectory + "\\zISOXML\\v3\\";
+
+            string directoryName = Path.GetDirectoryName(dirField);
+            if ((directoryName.Length > 0) && (!Directory.Exists(directoryName)))
+            { Directory.CreateDirectory(directoryName); }
+
+            string myFileName = "TASKDATA.xml";
+
+            try
+            {
+                XmlWriterSettings settings = new XmlWriterSettings();
+                settings.Indent = true;
+                settings.IndentChars = "  ";
+                XmlWriter xml = XmlWriter.Create(dirField + myFileName, settings);
+
+                xml.WriteStartElement("ISO11783_TaskData");//Settings
+                xml.WriteAttributeString("DataTransferOrigin", "1");
+                xml.WriteAttributeString("ManagementSoftwareManufacturer", "AgOpenGPS");
+                xml.WriteAttributeString("ManagementSoftwareVersion", "1.4.0");
+                xml.WriteAttributeString("VersionMajor", "3");
+                xml.WriteAttributeString("VersionMinor", "3");
+
+                {
+                    //PFD A = "Field ID" B = "Code" C = "Name" D = "Area sq m" E = "Customer Ref" F = "Farm Ref" >
+                    xml.WriteStartElement("PFD");//Field
+                    xml.WriteAttributeString("A", "PFD-1");
+                    xml.WriteAttributeString("C", currentFieldDirectory);
+                    xml.WriteAttributeString("D", ((int)(fd.areaOuterBoundary)).ToString());
+
+                    double lat = 0;
+                    double lon = 0;
+
+                    {
+                        //all the boundaries
+                        /*
+                        < PLN A = "1" C="Area in Sq M like 12568" >
+                            < LSG A = "1" >
+                                < PNT A = "2" C = "51.61918340" D = "4.51054560" />
+                                < PNT A = "2" C = "51.61915460" D = "4.51056120" />
+                            </ LSG >
+                        </ PLN >
+                        */
+                        for (int i = 0; i < bnd.bndList.Count; i++)
+                        {
+                            xml.WriteStartElement("PLN");//BND
+
+                            if (i == 0) xml.WriteAttributeString("A", "1"); //outerBnd
+                            else xml.WriteAttributeString("A", "6");  //innerBnd
+
+                            xml.WriteStartElement("LSG");//Polygon
+                            xml.WriteAttributeString("A", "1");
+
+                            for (int j = 0; j < bnd.bndList[i].fenceLineEar.Count; j++)
+                            {
+
+                                pn.ConvertLocalToWGS84(bnd.bndList[i].fenceLineEar[j].northing, bnd.bndList[i].fenceLineEar[j].easting, out lat, out lon);
+                                xml.WriteStartElement("PNT");//Boundary Points
+                                xml.WriteAttributeString("A", "2");
+                                xml.WriteAttributeString("C", lat.ToString());
+                                xml.WriteAttributeString("D", lon.ToString());
+                                xml.WriteEndElement(); //Boundary Points                   
+                            }
+
+                            xml.WriteEndElement();//Polygon
+                            xml.WriteEndElement();//BND
+                        }
+
+                        //all the headlands A=10
+                        if (bnd.bndList.Count > 0)
+                        {
+                            for (int i = 0; i < bnd.bndList.Count; i++)
+                            {
+                                if (bnd.bndList[i].hdLine.Count < 1) continue;
+
+                                xml.WriteStartElement("PLN");//BND
+
+                                xml.WriteAttributeString("A", "10"); //headland
+
+                                xml.WriteStartElement("LSG");//Polygon
+                                xml.WriteAttributeString("A", "1");
+
+                                for (int j = 0; j < bnd.bndList[i].hdLine.Count; j++)
+                                {
+                                    pn.ConvertLocalToWGS84(bnd.bndList[i].hdLine[j].northing, bnd.bndList[i].hdLine[j].easting, out lat, out lon);
+                                    xml.WriteStartElement("PNT");//Boundary Points
+                                    xml.WriteAttributeString("A", "2");
+                                    xml.WriteAttributeString("C", lat.ToString());
+                                    xml.WriteAttributeString("D", lon.ToString());
+                                    xml.WriteEndElement(); //Boundary Points                   
+                                }
+
+                                xml.WriteEndElement();//Polygon
+                                xml.WriteEndElement();//BND
+                            }
+                        }
+
+                        //AB Lines
+                        /*
+                        LSG A = "5" B = "Line Name" >
+                            < PNT A = "2" C = "51.61851540" D = "4.51137030" />
+                            < PNT A = "2" C = "51.61912230" D = "4.51056060" />
+                        </ LSG >
+                        */
+
+                        if (ABLine.lineArr != null && ABLine.lineArr.Count > 0)
+                        {
+                            for (int i = 0; i < ABLine.lineArr.Count; i++)
+                            {
+                                xml.WriteStartElement("LSG");//Line
+                                xml.WriteAttributeString("A", "5");
+                                xml.WriteAttributeString("B", ABLine.lineArr[i].Name);
+                                ///xml.WriteAttributeString("C", (tool.width).ToString());
+                                {
+                                    xml.WriteStartElement("PNT");//A
+
+                                    pn.ConvertLocalToWGS84(ABLine.lineArr[i].origin.northing - (Math.Cos(ABLine.lineArr[i].heading) * 1000),
+                                        ABLine.lineArr[i].origin.easting - (Math.Sin(ABLine.lineArr[i].heading) * 1000), out lat, out lon);
+
+                                    xml.WriteAttributeString("A", "2");
+                                    xml.WriteAttributeString("C", lat.ToString());
+                                    xml.WriteAttributeString("D", lon.ToString());
+
+                                    xml.WriteEndElement();//A
+                                    xml.WriteStartElement("PNT");//B
+
+                                    pn.ConvertLocalToWGS84(ABLine.lineArr[i].origin.northing + (Math.Cos(ABLine.lineArr[i].heading) * 1000),
+                                        ABLine.lineArr[i].origin.easting + (Math.Sin(ABLine.lineArr[i].heading) * 1000), out lat, out lon);
+
+                                    xml.WriteAttributeString("A", "2");
+
+                                    xml.WriteAttributeString("C", lat.ToString());
+                                    xml.WriteAttributeString("D", lon.ToString());
+                                }
+                                xml.WriteEndElement();//B
+                                xml.WriteEndElement();//Line
+                            }
+                        }
+
+                        //curves
+                        /*
+                        LSG A = "5" B = "Name Here" >
+                            < PNT A = "2" C = "51.61851540" D = "4.51137030" />
+                            < PNT A = "2" C = "51.61912230" D = "4.51056060" />
+                            < PNT A = "2" C = "51.61962230" D = "4.51056760" />
+                        </ LSG >
+                        */
+                        if (curve.curveArr != null && curve.curveArr.Count > 0)
+                        {
+                            for (int i = 0; i < curve.curveArr.Count; i++)
+                            {
+                                xml.WriteStartElement("LSG");//Curve
+                                xml.WriteAttributeString("A", "5"); //denotes guidance
+                                xml.WriteAttributeString("B", curve.curveArr[i].Name);
+                                //xml.WriteAttributeString("C", (tool.width).ToString());
+
+                                for (int j = 0; j < curve.curveArr[i].curvePts.Count; j++)
+                                {
+                                    xml.WriteStartElement("PNT");//point
+                                    pn.ConvertLocalToWGS84(curve.curveArr[i].curvePts[j].northing,
+                                        curve.curveArr[i].curvePts[j].easting, out lat, out lon);
+
+                                    xml.WriteAttributeString("A", "2");
+                                    xml.WriteAttributeString("C", lat.ToString());
+                                    xml.WriteAttributeString("D", lon.ToString());
+
+                                    xml.WriteEndElement();//point
+                                }
+                                xml.WriteEndElement(); //Curve   
+                            }
+                        }
+                    }
+
+                    //Last
+                    xml.WriteEndElement();//End Field
+                }
+
+                xml.WriteEndElement();//ISO11783_TaskData Settings
+
+                xml.Flush();
+
+                //Write the XML to file and close the kml
+                xml.Close();
+
+            }
+            catch (Exception)
+            {
+                //throw;
+            }
+        }
+
+        public void ExportFieldAs_ISOXMLv4()
+        {
+            int lineCounter = 0;
+
+            //get the directory and make sure it exists, create if not
+            string dirField = fieldsDirectory + currentFieldDirectory + "\\zISOXML\\v4\\";
+
+            string directoryName = Path.GetDirectoryName(dirField);
+            if ((directoryName.Length > 0) && (!Directory.Exists(directoryName)))
+            { Directory.CreateDirectory(directoryName); }
+
+            string myFileName = "TASKDATA.xml";
+
+            try
+            {
+                XmlWriterSettings settings = new XmlWriterSettings();
+                settings.Indent = true;
+                settings.IndentChars = "  ";
+                XmlWriter xml = XmlWriter.Create(dirField + myFileName, settings);
+
+                xml.WriteStartElement("ISO11783_TaskData");//Settings
+                xml.WriteAttributeString("DataTransferOrigin", "1");
+                xml.WriteAttributeString("ManagementSoftwareManufacturer", "AgOpenGPS");
+                xml.WriteAttributeString("ManagementSoftwareVersion", "1.4.0");
+                xml.WriteAttributeString("VersionMajor", "4");
+                xml.WriteAttributeString("VersionMinor", "2");
+
+                {
+                    //PFD A = "Field ID" B = "Code" C = "Name" D = "Area sq m" E = "Customer Ref" F = "Farm Ref" >
+                    xml.WriteStartElement("PFD");//Field
+                    xml.WriteAttributeString("A", "PFD-1");
+                    xml.WriteAttributeString("C", currentFieldDirectory);
+                    xml.WriteAttributeString("D", ((int)(fd.areaOuterBoundary)).ToString());
+
+                    double lat = 0;
+                    double lon = 0;
+
+                    {
+                        //all the boundaries
+                        /*
+                        < PLN A = "1" C="Area in Sq M like 12568" >
+                            < LSG A = "1" >
+                                < PNT A = "2" C = "51.61918340" D = "4.51054560" />
+                                < PNT A = "2" C = "51.61915460" D = "4.51056120" />
+                            </ LSG >
+                        </ PLN >
+                        */
+                        for (int i = 0; i < bnd.bndList.Count; i++)
+                        {
+                            xml.WriteStartElement("PLN");//BND
+
+                            if (i == 0) xml.WriteAttributeString("A", "1"); //outerBnd
+                            else xml.WriteAttributeString("A", "6");  //innerBnd
+
+                            xml.WriteStartElement("LSG");//Polygon
+                            xml.WriteAttributeString("A", "1");
+
+                            for (int j = 0; j < bnd.bndList[i].fenceLineEar.Count; j++)
+                            {
+
+                                pn.ConvertLocalToWGS84(bnd.bndList[i].fenceLineEar[j].northing, bnd.bndList[i].fenceLineEar[j].easting, out lat, out lon);
+                                xml.WriteStartElement("PNT");//Boundary Points
+                                xml.WriteAttributeString("A", "10");
+                                xml.WriteAttributeString("C", lat.ToString());
+                                xml.WriteAttributeString("D", lon.ToString());
+                                xml.WriteEndElement(); //Boundary Points                   
+                            }
+
+                            xml.WriteEndElement();//Polygon
+                            xml.WriteEndElement();//BND
+                        }
+
+                        //all the headlands A=10
+                        if (bnd.bndList.Count > 0)
+                        {
+                            for (int i = 0; i < bnd.bndList.Count; i++)
+                            {
+                                if (bnd.bndList[i].hdLine.Count < 1) continue;
+
+                                xml.WriteStartElement("PLN");//BND
+
+                                xml.WriteAttributeString("A", "10"); //headland
+
+                                xml.WriteStartElement("LSG");//Polygon
+                                xml.WriteAttributeString("A", "1");
+
+                                for (int j = 0; j < bnd.bndList[i].hdLine.Count; j++)
+                                {
+                                    pn.ConvertLocalToWGS84(bnd.bndList[i].hdLine[j].northing, bnd.bndList[i].hdLine[j].easting, out lat, out lon);
+                                    xml.WriteStartElement("PNT");//Boundary Points
+                                    xml.WriteAttributeString("A", "10");
+                                    xml.WriteAttributeString("C", lat.ToString());
+                                    xml.WriteAttributeString("D", lon.ToString());
+                                    xml.WriteEndElement(); //Boundary Points                   
+                                }
+
+                                xml.WriteEndElement();//Polygon
+                                xml.WriteEndElement();//BND
+                            }
+                        }
+
+                        //AB Lines
+                        /*
+                        LSG A = "5" B = "Line Name" >
+                            < PNT A = "2" C = "51.61851540" D = "4.51137030" />
+                            < PNT A = "2" C = "51.61912230" D = "4.51056060" />
+                        </ LSG >
+                        */
+
+                        if (ABLine.lineArr != null && ABLine.lineArr.Count > 0)
+                        {
+                            for (int i = 0; i < ABLine.lineArr.Count; i++)
+                            {
+                                xml.WriteStartElement("GGP");//Guide-P
+                                string name = "GGP" + lineCounter.ToString();
+                                lineCounter++;
+                                xml.WriteAttributeString("A", name);
+                                xml.WriteAttributeString("B", ABLine.lineArr[i].Name);
+                                {
+                                    xml.WriteStartElement("GPN");//Guide-N
+                                    xml.WriteAttributeString("A", name);
+                                    xml.WriteAttributeString("B", ABLine.lineArr[i].Name);
+                                    xml.WriteAttributeString("C", "1");
+                                    xml.WriteAttributeString("E", "1");
+                                    xml.WriteAttributeString("F", "1");
+                                    xml.WriteAttributeString("I", "16");
+                                    {
+                                        xml.WriteStartElement("LSG");//Line
+                                        xml.WriteAttributeString("A", "5");
+                                        {
+                                            xml.WriteStartElement("PNT");//A
+
+                                            pn.ConvertLocalToWGS84(ABLine.lineArr[i].origin.northing - (Math.Cos(ABLine.lineArr[i].heading) * 1000),
+                                                ABLine.lineArr[i].origin.easting - (Math.Sin(ABLine.lineArr[i].heading) * 1000), out lat, out lon);
+
+                                            xml.WriteAttributeString("A", "6");
+                                            xml.WriteAttributeString("C", lat.ToString());
+                                            xml.WriteAttributeString("D", lon.ToString());
+
+                                            xml.WriteEndElement();//A
+                                            xml.WriteStartElement("PNT");//B
+
+                                            pn.ConvertLocalToWGS84(ABLine.lineArr[i].origin.northing + (Math.Cos(ABLine.lineArr[i].heading) * 1000),
+                                                ABLine.lineArr[i].origin.easting + (Math.Sin(ABLine.lineArr[i].heading) * 1000), out lat, out lon);
+
+                                            xml.WriteAttributeString("A", "7");
+
+                                            xml.WriteAttributeString("C", lat.ToString());
+                                            xml.WriteAttributeString("D", lon.ToString());
+                                            xml.WriteEndElement();//B
+                                        }
+                                        xml.WriteEndElement();//Line
+                                    }
+                                    xml.WriteEndElement(); //Guide-N
+                                }
+                                xml.WriteEndElement(); //Guide-P
+                            }
+                        }
+
+                        //curves
+                        /*
+                        LSG A = "5" B = "Name Here" >
+                            < PNT A = "2" C = "51.61851540" D = "4.51137030" />
+                            < PNT A = "2" C = "51.61912230" D = "4.51056060" />
+                            < PNT A = "2" C = "51.61962230" D = "4.51056760" />
+                        </ LSG >
+                        */
+
+                        if (curve.curveArr != null && curve.curveArr.Count > 0)
+                        {
+                            for (int i = 0; i < curve.curveArr.Count; i++)
+                            {
+                                xml.WriteStartElement("GGP");//Guide-P
+                                string name = "GGP" + lineCounter.ToString();
+                                lineCounter++;
+                                xml.WriteAttributeString("A", name);
+                                xml.WriteAttributeString("B", curve.curveArr[i].Name);
+                                {
+                                    xml.WriteStartElement("GPN");//Guide-N
+                                    xml.WriteAttributeString("A", name);
+                                    xml.WriteAttributeString("B", curve.curveArr[i].Name);
+                                    xml.WriteAttributeString("C", "3");
+                                    xml.WriteAttributeString("E", "1");
+                                    xml.WriteAttributeString("F", "1");
+                                    xml.WriteAttributeString("I", "16");
+                                    {
+                                        xml.WriteStartElement("LSG");//Curve
+                                        xml.WriteAttributeString("A", "5"); //denotes guidance
+
+                                        for (int j = 0; j < curve.curveArr[i].curvePts.Count; j++)
+                                        {
+                                            xml.WriteStartElement("PNT");//point
+                                            pn.ConvertLocalToWGS84(curve.curveArr[i].curvePts[j].northing,
+                                                curve.curveArr[i].curvePts[j].easting, out lat, out lon);
+                                            if (j == 0)
+                                            {
+                                                xml.WriteAttributeString("A", "6");
+                                            }
+                                            else if (j == curve.curveArr[i].curvePts.Count - 1)
+                                            {
+                                                xml.WriteAttributeString("A", "7");
+                                            }
+                                            else
+                                            {
+                                                xml.WriteAttributeString("A", "9");
+                                            }
+                                            xml.WriteAttributeString("C", lat.ToString());
+                                            xml.WriteAttributeString("D", lon.ToString());
+
+                                            xml.WriteEndElement();//point
+                                        }
+                                        xml.WriteEndElement(); //end LSG curve
+                                    }
+                                    xml.WriteEndElement(); //Guide-N
+                                }
+                                xml.WriteEndElement(); //Guide-P
+                            }
+                        }
+                    }
+
+                    //Last
+                    xml.WriteEndElement();//End Field
+                }
+
+                xml.WriteEndElement();//ISO11783_TaskData Settings
+
+                xml.Flush();
+
+                //Write the XML to file and close the kml
+                xml.Close();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            /*
+                //xml.WriteStartElement("TSK");//Task
+                //xml.WriteAttributeString("A", "TSK1");
+                //xml.WriteAttributeString("B", "Tractor Work");
+                //xml.WriteAttributeString("C", "CTR1");
+                //xml.WriteAttributeString("E", "PFD-1");
+                //xml.WriteAttributeString("G", "1");
+                //xml.WriteAttributeString("I", "1");
+                //xml.WriteAttributeString("J", "0");
+                //xml.WriteEndElement();//Task
+            */
+
+        }
+
         //save the boundary
         public void FileSaveBoundary()
         {

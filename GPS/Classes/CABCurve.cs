@@ -320,6 +320,64 @@ namespace AgOpenGPS
             lastSecond = mf.secondsSinceStart;
         }
 
+        public void AddFirstLastPoints(ref List<vec3> xList)
+        {
+            int ptCnt = xList.Count - 1;
+            vec3 start = new vec3(xList[0]);
+
+            if (mf.bnd.bndList.Count > 0)
+            {
+                //end
+                while (mf.bnd.bndList[0].fenceLineEar.IsPointInPolygon(xList[xList.Count - 1]))
+                {
+                    for (int i = 1; i < 10; i++)
+                    {
+                        vec3 pt = new vec3(xList[ptCnt]);
+                        pt.easting += (Math.Sin(pt.heading) * i);
+                        pt.northing += (Math.Cos(pt.heading) * i);
+                        xList.Add(pt);
+                    }
+                    ptCnt = xList.Count - 1;
+                }
+
+                //and the beginning
+                start = new vec3(xList[0]);
+
+                while (mf.bnd.bndList[0].fenceLineEar.IsPointInPolygon(xList[0]))
+                {
+                    for (int i = 1; i < 10; i++)
+                    {
+                        vec3 pt = new vec3(start);
+                        pt.easting -= (Math.Sin(pt.heading) * i);
+                        pt.northing -= (Math.Cos(pt.heading) * i);
+                        xList.Insert(0, pt);
+                    }
+                    start = new vec3(xList[0]);
+                }
+            }
+            else
+            {
+                for (int i = 1; i < 300; i++)
+                {
+                    vec3 pt = new vec3(xList[ptCnt]);
+                    pt.easting += (Math.Sin(pt.heading) * i);
+                    pt.northing += (Math.Cos(pt.heading) * i);
+                    xList.Add(pt);
+                }
+
+                //and the beginning
+                start = new vec3(xList[0]);
+
+                for (int i = 1; i < 300; i++)
+                {
+                    vec3 pt = new vec3(start);
+                    pt.easting -= (Math.Sin(pt.heading) * i);
+                    pt.northing -= (Math.Cos(pt.heading) * i);
+                    xList.Insert(0, pt);
+                }
+            }
+        }
+
         public void GetCurrentCurveLine(vec3 pivot, vec3 steer)
         {
             if (refList == null || refList.Count < 5) return;

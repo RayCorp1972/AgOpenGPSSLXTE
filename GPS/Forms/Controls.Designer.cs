@@ -337,6 +337,8 @@ namespace AgOpenGPS
                 lblCurveLineName.Text = curve.curveArr[idx].Name;
             }
         }
+
+
         private void SetABLine(int num)
         {
                 ABLine.refPoint1 = ABLine.lineArr[ABLine.numABLineSelected - 1].origin;
@@ -533,6 +535,9 @@ namespace AgOpenGPS
                 SetForegroundWindow(processName[0].MainWindowHandle);
             }
         }
+
+
+
         private void btnAutoSteerConfig_Click(object sender, EventArgs e)
         {
             if (isTT)
@@ -645,6 +650,10 @@ namespace AgOpenGPS
             Form ff = Application.OpenForms["FormGPS"];
             ff.Focus();
         }
+
+
+
+
         private void btnShutdown_Click(object sender, EventArgs e)
         {
             Close();
@@ -887,7 +896,11 @@ namespace AgOpenGPS
         }
         private void menuLanguageRussian_Click(object sender, EventArgs e)
         {
-            SetLanguage("ru", true);
+            //SetLanguage("ru", true);
+            var form = new FormAdmin(this);
+            {
+                form.ShowDialog(this);
+            }
         }
         private void menuLanguageDutch_Click(object sender, EventArgs e)
         {
@@ -927,11 +940,8 @@ namespace AgOpenGPS
         }
         private void menuLanguageTurkish_Click(object sender, EventArgs e)
         {
+            SetLanguage("tr", true);
 
-            var form = new FormAdmin(this);
-            {
-                form.ShowDialog(this);
-            }
         }          
         private void finnishToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1840,6 +1850,14 @@ namespace AgOpenGPS
                     {
                         //ask for a field to copy
                         using (var form2 = new FormFieldExisting(this))
+                        { form2.ShowDialog(this); }
+                    }
+
+                    //load from Existing
+                    else if (result == DialogResult.Abort)
+                    {
+                        //ask for a field to copy
+                        using (var form2 = new FormFieldISOXML(this))
                         { form2.ShowDialog(this); }
                     }
                 }

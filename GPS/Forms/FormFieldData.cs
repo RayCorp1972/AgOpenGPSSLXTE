@@ -29,6 +29,10 @@ namespace AgOpenGPS
             lblTimeRemaining.Text = mf.fd.TimeTillFinished;
             lblRemainPercent.Text = mf.fd.WorkedAreaRemainPercentage;
 
+            label9.Text = mf.displayFieldName;
+            label11.Text =  mf.ABLine.lineArr[mf.ABLine.numABLineSelected - 1].Name;
+
+
             if (mf.isMetric)
             {
                 lblWorkRate.Text = mf.fd.WorkRateHectares;
@@ -69,6 +73,42 @@ namespace AgOpenGPS
                     lblApplied.Text = mf.fd.WorkedAcres;
                 }
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAP_Click(object sender, EventArgs e)
+        {
+            if (mf.isAutoSteerBtnOn)
+            {
+                mf.isAutoSteerBtnOn = false;
+                btnAP.Image = Properties.Resources.AutoSteerOff;
+                //if (yt.isYouTurnBtnOn) btnAutoYouTurn.PerformClick();
+                if (mf.sounds.isSteerSoundOn) mf.sounds.sndAutoSteerOff.Play();
+            }
+            else
+            {
+                if (mf.ABLine.isBtnABLineOn | mf.ct.isContourBtnOn | mf.curve.isBtnCurveOn)
+                {
+                    mf.isAutoSteerBtnOn = true;
+                    btnAP.Image = Properties.Resources.AutoSteerOn;
+                    if (mf.sounds.isSteerSoundOn) mf.sounds.sndAutoSteerOn.Play();
+                }
+                else
+                {
+                    //var form = new FormTimedMessage(2000, (gStr.gsNoGuidanceLines), (gStr.gsTurnOnContourOrMakeABLine));
+                    //form.Show(this);
+                }
+            }
+        }
+
+        private void FormFieldData_Load(object sender, EventArgs e)
+        {
+            btnAP.Image = Properties.Resources.AutoSteerOff;
+            button1.Text = mf.displayFieldName;
         }
     }
 }

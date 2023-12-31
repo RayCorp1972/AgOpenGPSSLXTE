@@ -50,6 +50,7 @@ namespace AgIO.Forms
             this.btnSerialOK.TabIndex = 95;
             this.btnSerialOK.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnSerialOK.UseVisualStyleBackColor = true;
+            this.btnSerialOK.Click += new System.EventHandler(this.btnSerialOK_Click);
             // 
             // btnSerialCancel
             // 

@@ -1049,16 +1049,7 @@ namespace AgIO
 
         private void btnWindowsShutDown_Click(object sender, EventArgs e)
         {
-            DialogResult result3 = MessageBox.Show("Shutdown Windows For Realz ?",
-                "For Sure For Sure ?",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button2);
-
-            if (result3 == DialogResult.Yes)
-            {
-                Process.Start("shutdown", "/s /t 0");
-            }
+            
         }
 
         private void toolStripGPSData_Click(object sender, EventArgs e)

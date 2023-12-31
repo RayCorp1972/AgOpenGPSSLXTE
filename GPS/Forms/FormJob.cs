@@ -54,35 +54,25 @@ namespace AgOpenGPS
 
             if (!File.Exists(fileAndDirectory))
             {
-                textBox1.Text = "";
+                lblResumeField.Text = "";
                 btnJobResume.Enabled = false;
                 mf.currentFieldDirectory = "";
-
 
                 Properties.Settings.Default.setF_CurrentDir = "";
                 Properties.Settings.Default.Save();
             }
             else
             {
-                textBox1.Text = mf.currentFieldDirectory;
+                lblResumeField.Text = mf.currentFieldDirectory;
             }
 
-            lblLatitude.Text = mf.Latitude;
-            lblLongitude.Text = mf.Longitude;
-
-            //other sat and GPS info
-            lblFixQuality.Text = mf.FixQuality;
-            lblSatsTracked.Text = mf.SatsTracked;
-
-            if (mf.isMetric)
+            if (mf.isJobStarted)
             {
-                lblAltitude.Text = mf.Altitude;
-            }
-            else //imperial
-            {
-                lblAltitude.Text = mf.AltitudeFeet;
+                btnJobResume.Enabled = false;
             }
 
+            Location = Properties.Settings.Default.setJobMenu_location;
+            Size = Properties.Settings.Default.setJobMenu_size;
 
             mf.CloseTopMosts();
         }
@@ -251,6 +241,37 @@ namespace AgOpenGPS
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //mf.TimedMessageBox(2000, "Not Implemented", "Coming Soon");
+            //return;
+            if (mf.isJobStarted) mf.FileSaveEverythingBeforeClosingField();
+            //back to FormGPS
+            DialogResult = DialogResult.Abort;
+            Close();
+        }
+
+        private void btnFromISOXML_Click(object sender, EventArgs e)
+        {
+            //mf.TimedMessageBox(2000, "Not Implemented", "Coming Soon");
+            //return;
+            if (mf.isJobStarted) mf.FileSaveEverythingBeforeClosingField();
+            //back to FormGPS
+            
+            DialogResult = DialogResult.Abort;
+            Close();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            //mf.TimedMessageBox(2000, "Not Implemented", "Coming Soon");
+            //return;
+            if (mf.isJobStarted) mf.FileSaveEverythingBeforeClosingField();
+            //back to FormGPS
+            DialogResult = DialogResult.Abort;
+            Close();
         }
     }
 }

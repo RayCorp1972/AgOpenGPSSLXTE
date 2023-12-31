@@ -1899,6 +1899,16 @@ namespace AgOpenGPS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ISOXML {
+            get {
+                object obj = ResourceManager.GetObject("ISOXML", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap JobActive {
             get {
                 object obj = ResourceManager.GetObject("JobActive", resourceCulture);
@@ -2132,6 +2142,16 @@ namespace AgOpenGPS.Properties {
         internal static System.Drawing.Bitmap Massey {
             get {
                 object obj = ResourceManager.GetObject("Massey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minimize_6445659_5314018 {
+            get {
+                object obj = ResourceManager.GetObject("minimize-6445659-5314018", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -38,7 +38,7 @@ namespace AgOpenGPS
             /// <summary>
             /// 8 bytes
             /// </summary>
-            public byte[] pgn = new byte[] { 0x80, 0x81, 0x7f, 0xFE, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0xCC };
+            public byte[] pgn = new byte[] { 0x80, 0x81, 0x7f, 0xFE, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0xCC };
             public int speedLo = 5;
             public int speedHi = 6;
             public int status = 7;

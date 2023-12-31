@@ -2747,5 +2747,35 @@ namespace AgOpenGPS.Properties {
                 this["button1WasClicked"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("900, 600")]
+        public global::System.Drawing.Size setJobMenu_size
+        {
+            get
+            {
+                return ((global::System.Drawing.Size)(this["setJobMenu_size"]));
+            }
+            set
+            {
+                this["setJobMenu_size"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
+        public global::System.Drawing.Point setJobMenu_location
+        {
+            get
+            {
+                return ((global::System.Drawing.Point)(this["setJobMenu_location"]));
+            }
+            set
+            {
+                this["setJobMenu_location"] = value;
+            }
+        }
     }
 }

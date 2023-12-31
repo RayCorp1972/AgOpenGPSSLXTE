@@ -28,7 +28,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>1.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -151,6 +151,7 @@
     </Compile>
     <Compile Include="Classes\CBoundary.cs" />
     <Compile Include="Classes\CGuidance.cs" />
+    <Compile Include="Classes\CHeadLine.cs" />
     <Compile Include="Classes\CRecordedPath.cs" />
     <Compile Include="Classes\CPatches.cs" />
     <Compile Include="Classes\CSettings.cs" />
@@ -190,6 +191,12 @@
     </Compile>
     <Compile Include="CustomControl1.Designer.cs">
       <DependentUpon>CustomControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormFieldISOXML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFieldISOXML.designer.cs">
+      <DependentUpon>FormFieldISOXML.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Form_AdminPass.cs">
       <SubType>Form</SubType>
@@ -642,6 +649,9 @@
       <DependentUpon>FormGPS.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\vec3.cs" />
+    <EmbeddedResource Include="Forms\FormFieldISOXML.resx">
+      <DependentUpon>FormFieldISOXML.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_AdminPass.resx">
       <DependentUpon>Form_AdminPass.cs</DependentUpon>
     </EmbeddedResource>
@@ -978,6 +988,8 @@
     <None Include="Resources\logo2.png" />
     <None Include="Resources\BoundaryLoadFromGE.png" />
     <None Include="Resources\clearly.wav" />
+    <None Include="Resources\ISOXML.png" />
+    <None Include="Resources\minimize-6445659-5314018.png" />
     <Content Include="Resources\rtk_lost.wav" />
     <None Include="btnImages\BrightnessDn.png" />
     <None Include="btnImages\BrightnessUp.png" />

@@ -58,11 +58,15 @@
             this.btnSaveEditName = new System.Windows.Forms.Button();
             this.btnCancelEditName = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.panelKML = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnLoadFromKML = new System.Windows.Forms.Button();
             this.panelAPlus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeading)).BeginInit();
             this.panelName.SuspendLayout();
             this.panelPick.SuspendLayout();
             this.panelEditName.SuspendLayout();
+            this.panelKML.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvLines
@@ -310,6 +314,7 @@
             // panelPick
             // 
             this.panelPick.BackColor = System.Drawing.Color.Transparent;
+            this.panelPick.Controls.Add(this.btnLoadFromKML);
             this.panelPick.Controls.Add(this.btnSwapAB);
             this.panelPick.Controls.Add(this.btnEditName);
             this.panelPick.Controls.Add(this.btnDuplicate);
@@ -381,7 +386,7 @@
             this.btnNewABLine.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewABLine.Image = global::AgOpenGPS.Properties.Resources.AddNew;
             this.btnNewABLine.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnNewABLine.Location = new System.Drawing.Point(236, 243);
+            this.btnNewABLine.Location = new System.Drawing.Point(209, 243);
             this.btnNewABLine.Name = "btnNewABLine";
             this.btnNewABLine.Size = new System.Drawing.Size(73, 63);
             this.btnNewABLine.TabIndex = 149;
@@ -400,7 +405,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Tahoma", 14.25F);
             this.btnCancel.Image = global::AgOpenGPS.Properties.Resources.SwitchOff;
             this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCancel.Location = new System.Drawing.Point(121, 243);
+            this.btnCancel.Location = new System.Drawing.Point(103, 243);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(73, 63);
             this.btnCancel.TabIndex = 421;
@@ -452,7 +457,7 @@
             this.panelEditName.Controls.Add(this.btnSaveEditName);
             this.panelEditName.Controls.Add(this.btnCancelEditName);
             this.panelEditName.Controls.Add(this.textBox2);
-            this.panelEditName.Location = new System.Drawing.Point(437, 353);
+            this.panelEditName.Location = new System.Drawing.Point(308, 353);
             this.panelEditName.Name = "panelEditName";
             this.panelEditName.Size = new System.Drawing.Size(233, 313);
             this.panelEditName.TabIndex = 434;
@@ -546,12 +551,55 @@
             this.textBox2.Click += new System.EventHandler(this.textBox2_Click);
             this.textBox2.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.textBox2_HelpRequested);
             // 
+            // panelKML
+            // 
+            this.panelKML.BackColor = System.Drawing.Color.Transparent;
+            this.panelKML.Controls.Add(this.button3);
+            this.panelKML.Location = new System.Drawing.Point(557, 353);
+            this.panelKML.Name = "panelKML";
+            this.panelKML.Size = new System.Drawing.Size(233, 313);
+            this.panelKML.TabIndex = 435;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Tahoma", 14.25F);
+            this.button3.Image = global::AgOpenGPS.Properties.Resources.Cancel64;
+            this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button3.Location = new System.Drawing.Point(8, 230);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(88, 68);
+            this.button3.TabIndex = 423;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // btnLoadFromKML
+            // 
+            this.btnLoadFromKML.BackColor = System.Drawing.Color.Transparent;
+            this.btnLoadFromKML.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnLoadFromKML.FlatAppearance.BorderSize = 0;
+            this.btnLoadFromKML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadFromKML.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadFromKML.Image = global::AgOpenGPS.Properties.Resources.BoundaryLoadFromGE;
+            this.btnLoadFromKML.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnLoadFromKML.Location = new System.Drawing.Point(288, 243);
+            this.btnLoadFromKML.Name = "btnLoadFromKML";
+            this.btnLoadFromKML.Size = new System.Drawing.Size(73, 63);
+            this.btnLoadFromKML.TabIndex = 425;
+            this.btnLoadFromKML.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnLoadFromKML.UseVisualStyleBackColor = false;
+            this.btnLoadFromKML.Click += new System.EventHandler(this.btnLoadFromKML_Click);
+            // 
             // FormABLine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(800, 695);
+            this.Controls.Add(this.panelKML);
             this.Controls.Add(this.panelEditName);
             this.Controls.Add(this.panelPick);
             this.Controls.Add(this.panelName);
@@ -576,6 +624,7 @@
             this.panelPick.ResumeLayout(false);
             this.panelEditName.ResumeLayout(false);
             this.panelEditName.PerformLayout();
+            this.panelKML.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -611,5 +660,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnSwapAB;
         private System.Windows.Forms.Button btnManual;
+        private System.Windows.Forms.Panel panelKML;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnLoadFromKML;
     }
 }

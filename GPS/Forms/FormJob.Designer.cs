@@ -30,6 +30,8 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lblResumeField = new System.Windows.Forms.Label();
             this.btnFromExisting = new System.Windows.Forms.Button();
             this.lblSatsTracked = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,17 +57,20 @@
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.textBox1.Location = new System.Drawing.Point(456, 125);
+            this.textBox1.Location = new System.Drawing.Point(354, 66);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(268, 50);
             this.textBox1.TabIndex = 88;
             this.textBox1.Text = "File name goes here\r\nSecond line";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Visible = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.lblResumeField);
             this.panel1.Controls.Add(this.btnFromExisting);
             this.panel1.Controls.Add(this.lblSatsTracked);
             this.panel1.Controls.Add(this.label3);
@@ -87,9 +92,43 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(759, 499);
+            this.panel1.Size = new System.Drawing.Size(706, 499);
             this.panel1.TabIndex = 90;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 20.25F);
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Image = global::AgOpenGPS.Properties.Resources.ISOXML;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.Location = new System.Drawing.Point(35, 124);
+            this.button1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(268, 82);
+            this.button1.TabIndex = 109;
+            this.button1.Text = "ISO-XML";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // lblResumeField
+            // 
+            this.lblResumeField.AutoSize = true;
+            this.lblResumeField.BackColor = System.Drawing.Color.Transparent;
+            this.lblResumeField.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResumeField.ForeColor = System.Drawing.Color.White;
+            this.lblResumeField.Location = new System.Drawing.Point(453, 142);
+            this.lblResumeField.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblResumeField.Name = "lblResumeField";
+            this.lblResumeField.Size = new System.Drawing.Size(41, 18);
+            this.lblResumeField.TabIndex = 108;
+            this.lblResumeField.Text = "Sats";
+            this.lblResumeField.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnFromExisting
             // 
@@ -100,7 +139,7 @@
             this.btnFromExisting.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnFromExisting.Image = global::AgOpenGPS.Properties.Resources.FileExisting;
             this.btnFromExisting.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFromExisting.Location = new System.Drawing.Point(35, 271);
+            this.btnFromExisting.Location = new System.Drawing.Point(35, 303);
             this.btnFromExisting.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnFromExisting.Name = "btnFromExisting";
             this.btnFromExisting.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -117,25 +156,26 @@
             this.lblSatsTracked.BackColor = System.Drawing.Color.Transparent;
             this.lblSatsTracked.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSatsTracked.ForeColor = System.Drawing.Color.White;
-            this.lblSatsTracked.Location = new System.Drawing.Point(697, 41);
+            this.lblSatsTracked.Location = new System.Drawing.Point(465, 16);
             this.lblSatsTracked.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblSatsTracked.Name = "lblSatsTracked";
             this.lblSatsTracked.Size = new System.Drawing.Size(41, 18);
             this.lblSatsTracked.TabIndex = 101;
             this.lblSatsTracked.Text = "Sats";
             this.lblSatsTracked.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSatsTracked.Visible = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(645, 41);
+            this.label3.Location = new System.Drawing.Point(452, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 18);
+            this.label3.Size = new System.Drawing.Size(228, 23);
             this.label3.TabIndex = 103;
-            this.label3.Text = "# Sats";
+            this.label3.Text = "Laast gekozen perceel:";
             // 
             // label8
             // 
@@ -149,6 +189,7 @@
             this.label8.Size = new System.Drawing.Size(55, 18);
             this.label8.TabIndex = 99;
             this.label8.Text = "Hoogte";
+            this.label8.Visible = false;
             // 
             // lblAltitude
             // 
@@ -163,6 +204,7 @@
             this.lblAltitude.TabIndex = 98;
             this.lblAltitude.Text = "Altitude";
             this.lblAltitude.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAltitude.Visible = false;
             // 
             // label2
             // 
@@ -175,6 +217,7 @@
             this.label2.Size = new System.Drawing.Size(64, 18);
             this.label2.TabIndex = 97;
             this.label2.Text = "Kwaliteit:";
+            this.label2.Visible = false;
             // 
             // lblFixQuality
             // 
@@ -189,6 +232,7 @@
             this.lblFixQuality.TabIndex = 96;
             this.lblFixQuality.Text = "FixQual";
             this.lblFixQuality.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblFixQuality.Visible = false;
             // 
             // lblLatitude
             // 
@@ -201,6 +245,7 @@
             this.lblLatitude.Size = new System.Drawing.Size(70, 18);
             this.lblLatitude.TabIndex = 93;
             this.lblLatitude.Text = "Latitude";
+            this.lblLatitude.Visible = false;
             // 
             // label6
             // 
@@ -213,6 +258,7 @@
             this.label6.Size = new System.Drawing.Size(28, 18);
             this.label6.TabIndex = 92;
             this.label6.Text = "Lat";
+            this.label6.Visible = false;
             // 
             // label7
             // 
@@ -225,6 +271,7 @@
             this.label7.Size = new System.Drawing.Size(31, 18);
             this.label7.TabIndex = 95;
             this.label7.Text = "Lon";
+            this.label7.Visible = false;
             // 
             // lblLongitude
             // 
@@ -237,6 +284,7 @@
             this.lblLongitude.Size = new System.Drawing.Size(82, 18);
             this.lblLongitude.TabIndex = 94;
             this.lblLongitude.Text = "Longitude";
+            this.lblLongitude.Visible = false;
             // 
             // btnJobNew
             // 
@@ -247,7 +295,7 @@
             this.btnJobNew.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnJobNew.Image = global::AgOpenGPS.Properties.Resources.FileNew;
             this.btnJobNew.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnJobNew.Location = new System.Drawing.Point(35, 399);
+            this.btnJobNew.Location = new System.Drawing.Point(35, 393);
             this.btnJobNew.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnJobNew.Name = "btnJobNew";
             this.btnJobNew.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -267,7 +315,7 @@
             this.btnInField.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnInField.Image = global::AgOpenGPS.Properties.Resources.AutoManualIsAuto;
             this.btnInField.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnInField.Location = new System.Drawing.Point(35, 15);
+            this.btnInField.Location = new System.Drawing.Point(35, 34);
             this.btnInField.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnInField.Name = "btnInField";
             this.btnInField.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -327,7 +375,7 @@
             this.btnFromKML.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnFromKML.Image = global::AgOpenGPS.Properties.Resources.BoundaryLoadFromGE;
             this.btnFromKML.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFromKML.Location = new System.Drawing.Point(35, 143);
+            this.btnFromKML.Location = new System.Drawing.Point(35, 213);
             this.btnFromKML.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnFromKML.Name = "btnFromKML";
             this.btnFromKML.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -359,7 +407,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Cyan;
-            this.ClientSize = new System.Drawing.Size(767, 507);
+            this.ClientSize = new System.Drawing.Size(714, 507);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Tahoma", 14.25F);
@@ -370,7 +418,7 @@
             this.Padding = new System.Windows.Forms.Padding(4);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Start a field";
             this.Load += new System.EventHandler(this.FormJob_Load);
             this.panel1.ResumeLayout(false);
@@ -400,5 +448,7 @@
         private System.Windows.Forms.Label lblSatsTracked;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnFromExisting;
+        private System.Windows.Forms.Label lblResumeField;
+        private System.Windows.Forms.Button button1;
     }
 }

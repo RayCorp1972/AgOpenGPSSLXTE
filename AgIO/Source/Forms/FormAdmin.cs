@@ -26,5 +26,22 @@ namespace AgIO.Forms
         {
 
         }
+
+        private void btnSerialOK_Click(object sender, EventArgs e)
+        {
+            if (tboxUserPassword.Text.Contains("2806"))
+            {
+                //{
+                //    var frm = (FormLoop)this.Owner;
+                //    if (frm != null)
+                   
+
+                        
+                //}
+
+            }
+
+            Close();
+        }
     }
 }
